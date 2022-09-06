@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		3959F47628C7609500985023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F47528C7609500985023 /* AppDelegate.swift */; };
 		3959F47828C7609500985023 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F47728C7609500985023 /* SceneDelegate.swift */; };
-		3959F47A28C7609500985023 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F47928C7609500985023 /* ViewController.swift */; };
 		3959F47D28C7609500985023 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3959F47B28C7609500985023 /* Main.storyboard */; };
 		3959F47F28C7609500985023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3959F47E28C7609500985023 /* Assets.xcassets */; };
 		3959F48228C7609500985023 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3959F48028C7609500985023 /* LaunchScreen.storyboard */; };
 		3959F48D28C7609600985023 /* FlowersReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F48C28C7609600985023 /* FlowersReminderTests.swift */; };
 		3959F49728C7609600985023 /* FlowersReminderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F49628C7609600985023 /* FlowersReminderUITests.swift */; };
 		3959F49928C7609600985023 /* FlowersReminderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F49828C7609600985023 /* FlowersReminderUITestsLaunchTests.swift */; };
+		3959F4AD28C77EA300985023 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4AC28C77EA300985023 /* TabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,6 @@
 		3959F47228C7609500985023 /* FlowersReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowersReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3959F47528C7609500985023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3959F47728C7609500985023 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3959F47928C7609500985023 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3959F47C28C7609500985023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3959F47E28C7609500985023 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3959F48128C7609500985023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		3959F49228C7609600985023 /* FlowersReminderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowersReminderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3959F49628C7609600985023 /* FlowersReminderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowersReminderUITests.swift; sourceTree = "<group>"; };
 		3959F49828C7609600985023 /* FlowersReminderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowersReminderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3959F4AC28C77EA300985023 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +101,10 @@
 			children = (
 				3959F47528C7609500985023 /* AppDelegate.swift */,
 				3959F47728C7609500985023 /* SceneDelegate.swift */,
-				3959F47928C7609500985023 /* ViewController.swift */,
-				3959F47B28C7609500985023 /* Main.storyboard */,
-				3959F47E28C7609500985023 /* Assets.xcassets */,
-				3959F48028C7609500985023 /* LaunchScreen.storyboard */,
+				3959F4A628C77D3700985023 /* Controllers */,
+				3959F4A728C77D4000985023 /* RealmManager */,
+				3959F4A528C77D2D00985023 /* Models */,
+				3959F4A828C77D4F00985023 /* Resources */,
 				3959F48328C7609500985023 /* Info.plist */,
 			);
 			path = FlowersReminder;
@@ -125,6 +125,62 @@
 				3959F49828C7609600985023 /* FlowersReminderUITestsLaunchTests.swift */,
 			);
 			path = FlowersReminderUITests;
+			sourceTree = "<group>";
+		};
+		3959F4A528C77D2D00985023 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3959F4AB28C77D9D00985023 /* Cells */,
+				3959F4A928C77D6800985023 /* Alarm */,
+				3959F4AA28C77D7100985023 /* Picker */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3959F4A628C77D3700985023 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3959F4AC28C77EA300985023 /* TabBar.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3959F4A728C77D4000985023 /* RealmManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RealmManager;
+			sourceTree = "<group>";
+		};
+		3959F4A828C77D4F00985023 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3959F48028C7609500985023 /* LaunchScreen.storyboard */,
+				3959F47B28C7609500985023 /* Main.storyboard */,
+				3959F47E28C7609500985023 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3959F4A928C77D6800985023 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		3959F4AA28C77D7100985023 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		3959F4AB28C77D9D00985023 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3959F47A28C7609500985023 /* ViewController.swift in Sources */,
+				3959F4AD28C77EA300985023 /* TabBar.swift in Sources */,
 				3959F47628C7609500985023 /* AppDelegate.swift in Sources */,
 				3959F47828C7609500985023 /* SceneDelegate.swift in Sources */,
 			);
@@ -443,8 +499,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,8 +528,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
