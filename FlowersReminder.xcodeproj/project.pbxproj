@@ -20,6 +20,7 @@
 		3959F4B128C7829B00985023 /* ActiveAlarms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B028C7829B00985023 /* ActiveAlarms.swift */; };
 		3959F4B328C782A900985023 /* AddNewFlower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B228C782A900985023 /* AddNewFlower.swift */; };
 		3959F4B528C782B300985023 /* FlowerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B428C782B300985023 /* FlowerCard.swift */; };
+		3959F4B828C787AA00985023 /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B728C787AA00985023 /* ColorHex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		3959F4B028C7829B00985023 /* ActiveAlarms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveAlarms.swift; sourceTree = "<group>"; };
 		3959F4B228C782A900985023 /* AddNewFlower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFlower.swift; sourceTree = "<group>"; };
 		3959F4B428C782B300985023 /* FlowerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCard.swift; sourceTree = "<group>"; };
+		3959F4B728C787AA00985023 /* ColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				3959F4A628C77D3700985023 /* Controllers */,
 				3959F4A728C77D4000985023 /* RealmManager */,
 				3959F4A528C77D2D00985023 /* Models */,
+				3959F4B628C7878D00985023 /* Extensions */,
 				3959F4A828C77D4F00985023 /* Resources */,
 				3959F48328C7609500985023 /* Info.plist */,
 			);
@@ -193,6 +196,14 @@
 			children = (
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		3959F4B628C7878D00985023 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3959F4B728C787AA00985023 /* ColorHex.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +342,7 @@
 				3959F4B328C782A900985023 /* AddNewFlower.swift in Sources */,
 				3959F4AF28C7828200985023 /* ListOfFlowers.swift in Sources */,
 				3959F4B128C7829B00985023 /* ActiveAlarms.swift in Sources */,
+				3959F4B828C787AA00985023 /* ColorHex.swift in Sources */,
 				3959F47628C7609500985023 /* AppDelegate.swift in Sources */,
 				3959F47828C7609500985023 /* SceneDelegate.swift in Sources */,
 			);

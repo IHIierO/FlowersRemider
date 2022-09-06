@@ -22,6 +22,9 @@ class TabBar: UITabBarController{
         
         viewControllers = [listOfFlowersViewController, ActiveAlarmViewController]
         
+        self.tabBar.tintColor = UIColor(hexString: "#92CD5A")
+        self.tabBar.unselectedItemTintColor = UIColor(hexString: "#ECFBDE")
+        
     }
     
     private func createNavigationControllers(viewControllers: UIViewController, tabBarItemName: String, tabBarItemImage: String) -> UINavigationController{
@@ -31,6 +34,7 @@ class TabBar: UITabBarController{
         
         let navigationController = UINavigationController(rootViewController: viewControllers)
         navigationController.tabBarItem = tabBarItem
+        
         
         return navigationController
     }
