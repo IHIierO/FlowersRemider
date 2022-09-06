@@ -12,8 +12,17 @@ class TabBar: UITabBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.red
         
+    }
+    
+    private func createNavigationControllers(viewControllers: UIViewController, tabBarItemName: String, tabBarItemImage: String) -> UINavigationController{
+        
+        let tabBarItem = UITabBarItem(title: tabBarItemName, image: UIImage(systemName: tabBarItemImage), tag: 0)
+        
+        
+        let navigationController = UINavigationController(rootViewController: viewControllers)
+        
+        return navigationController
     }
     
 }
