@@ -11,9 +11,12 @@ class ActiveAlarms: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewControllerConfig()
         
     }
     
-    
+    private func viewControllerConfig(){
+        title = "Будильники"
+        view.backgroundColor = .white
+    }
 }

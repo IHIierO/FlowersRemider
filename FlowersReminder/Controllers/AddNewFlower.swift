@@ -15,5 +15,7 @@ class AddNewFlower: UIViewController{
         
     }
     
-    
+    private func viewControllerConfig(){
+        title = "Новый Цветок"
+    }
 }

@@ -12,8 +12,13 @@ class ListOfFlowers: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewControllerConfig()
         
     }
     
-    
+    private func viewControllerConfig(){
+        
+        title = "Мои Цветы"
+        view.backgroundColor = .white
+    }
 }

@@ -12,6 +12,15 @@ class TabBar: UITabBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarConfig()
+    }
+    
+    private func tabBarConfig(){
+        
+        let listOfFlowersViewController = createNavigationControllers(viewControllers: ListOfFlowers(), tabBarItemName: "Мои Цветы", tabBarItemImage: "camera.macro")
+        let ActiveAlarmViewController = createNavigationControllers(viewControllers: ActiveAlarms(), tabBarItemName: "Будильники", tabBarItemImage: "alarm.fill")
+        
+        viewControllers = [listOfFlowersViewController, ActiveAlarmViewController]
         
     }
     
@@ -21,6 +30,7 @@ class TabBar: UITabBarController{
         
         
         let navigationController = UINavigationController(rootViewController: viewControllers)
+        navigationController.tabBarItem = tabBarItem
         
         return navigationController
     }

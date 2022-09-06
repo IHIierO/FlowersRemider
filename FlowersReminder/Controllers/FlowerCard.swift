@@ -15,5 +15,7 @@ class FlowerCard: UIViewController{
         
     }
     
-    
+    private func viewControllerConfig(){
+        title = "Гербера"
+    }
 }
