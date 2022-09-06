@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		201BCA0503533B2B62E4E560 /* Pods_FlowersReminderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6578C14CBB65C132886F2B3 /* Pods_FlowersReminderTests.framework */; };
 		3959F47628C7609500985023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F47528C7609500985023 /* AppDelegate.swift */; };
 		3959F47828C7609500985023 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F47728C7609500985023 /* SceneDelegate.swift */; };
 		3959F47D28C7609500985023 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3959F47B28C7609500985023 /* Main.storyboard */; };
@@ -21,6 +22,8 @@
 		3959F4B328C782A900985023 /* AddNewFlower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B228C782A900985023 /* AddNewFlower.swift */; };
 		3959F4B528C782B300985023 /* FlowerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B428C782B300985023 /* FlowerCard.swift */; };
 		3959F4B828C787AA00985023 /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B728C787AA00985023 /* ColorHex.swift */; };
+		C7EDB8DB3C74769C6154BA90 /* Pods_FlowersReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CC39C96C247AF339AE2D822 /* Pods_FlowersReminder.framework */; };
+		DF718314447AE2FBDDAA5381 /* Pods_FlowersReminder_FlowersReminderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF7DB0207135E0570DB66E6 /* Pods_FlowersReminder_FlowersReminderUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		094D8733084C1D4F534DE6D6 /* Pods-FlowersReminder-FlowersReminderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowersReminder-FlowersReminderUITests.release.xcconfig"; path = "Target Support Files/Pods-FlowersReminder-FlowersReminderUITests/Pods-FlowersReminder-FlowersReminderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1CC39C96C247AF339AE2D822 /* Pods_FlowersReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlowersReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AB49EA99F3F6F63EA0A9958 /* Pods-FlowersReminderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowersReminderTests.release.xcconfig"; path = "Target Support Files/Pods-FlowersReminderTests/Pods-FlowersReminderTests.release.xcconfig"; sourceTree = "<group>"; };
 		3959F47228C7609500985023 /* FlowersReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowersReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3959F47528C7609500985023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3959F47728C7609500985023 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +65,12 @@
 		3959F4B228C782A900985023 /* AddNewFlower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFlower.swift; sourceTree = "<group>"; };
 		3959F4B428C782B300985023 /* FlowerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCard.swift; sourceTree = "<group>"; };
 		3959F4B728C787AA00985023 /* ColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHex.swift; sourceTree = "<group>"; };
+		55583549923FC3A2E8127D29 /* Pods-FlowersReminderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowersReminderTests.debug.xcconfig"; path = "Target Support Files/Pods-FlowersReminderTests/Pods-FlowersReminderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8F27CE4AF63EF55DFCAC06FA /* Pods-FlowersReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowersReminder.release.xcconfig"; path = "Target Support Files/Pods-FlowersReminder/Pods-FlowersReminder.release.xcconfig"; sourceTree = "<group>"; };
+		9FF7DB0207135E0570DB66E6 /* Pods_FlowersReminder_FlowersReminderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlowersReminder_FlowersReminderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF513A4E16F612CE63487D95 /* Pods-FlowersReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowersReminder.debug.xcconfig"; path = "Target Support Files/Pods-FlowersReminder/Pods-FlowersReminder.debug.xcconfig"; sourceTree = "<group>"; };
+		E08307BD1DD0E2C036C6B22C /* Pods-FlowersReminder-FlowersReminderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowersReminder-FlowersReminderUITests.debug.xcconfig"; path = "Target Support Files/Pods-FlowersReminder-FlowersReminderUITests/Pods-FlowersReminder-FlowersReminderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F6578C14CBB65C132886F2B3 /* Pods_FlowersReminderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlowersReminderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7EDB8DB3C74769C6154BA90 /* Pods_FlowersReminder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				201BCA0503533B2B62E4E560 /* Pods_FlowersReminderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF718314447AE2FBDDAA5381 /* Pods_FlowersReminder_FlowersReminderUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +108,8 @@
 				3959F48B28C7609600985023 /* FlowersReminderTests */,
 				3959F49528C7609600985023 /* FlowersReminderUITests */,
 				3959F47328C7609500985023 /* Products */,
+				A83A8B9E9F1AEAEA6D7BC9BA /* Pods */,
+				DAFF730578E4ACB95506A05F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,6 +223,30 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A83A8B9E9F1AEAEA6D7BC9BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AF513A4E16F612CE63487D95 /* Pods-FlowersReminder.debug.xcconfig */,
+				8F27CE4AF63EF55DFCAC06FA /* Pods-FlowersReminder.release.xcconfig */,
+				E08307BD1DD0E2C036C6B22C /* Pods-FlowersReminder-FlowersReminderUITests.debug.xcconfig */,
+				094D8733084C1D4F534DE6D6 /* Pods-FlowersReminder-FlowersReminderUITests.release.xcconfig */,
+				55583549923FC3A2E8127D29 /* Pods-FlowersReminderTests.debug.xcconfig */,
+				2AB49EA99F3F6F63EA0A9958 /* Pods-FlowersReminderTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DAFF730578E4ACB95506A05F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CC39C96C247AF339AE2D822 /* Pods_FlowersReminder.framework */,
+				9FF7DB0207135E0570DB66E6 /* Pods_FlowersReminder_FlowersReminderUITests.framework */,
+				F6578C14CBB65C132886F2B3 /* Pods_FlowersReminderTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,9 +254,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3959F49C28C7609600985023 /* Build configuration list for PBXNativeTarget "FlowersReminder" */;
 			buildPhases = (
+				DF70C1536F5545EF747A9FD4 /* [CP] Check Pods Manifest.lock */,
 				3959F46E28C7609500985023 /* Sources */,
 				3959F46F28C7609500985023 /* Frameworks */,
 				3959F47028C7609500985023 /* Resources */,
+				6D8C5C4DB0B78F8B27D7F99C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -230,6 +273,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3959F49F28C7609600985023 /* Build configuration list for PBXNativeTarget "FlowersReminderTests" */;
 			buildPhases = (
+				1036AAFCCE90D680EB50940D /* [CP] Check Pods Manifest.lock */,
 				3959F48428C7609600985023 /* Sources */,
 				3959F48528C7609600985023 /* Frameworks */,
 				3959F48628C7609600985023 /* Resources */,
@@ -248,9 +292,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3959F4A228C7609600985023 /* Build configuration list for PBXNativeTarget "FlowersReminderUITests" */;
 			buildPhases = (
+				35FEEE7D67187BE23A3240C7 /* [CP] Check Pods Manifest.lock */,
 				3959F48E28C7609600985023 /* Sources */,
 				3959F48F28C7609600985023 /* Frameworks */,
 				3959F49028C7609600985023 /* Resources */,
+				865C257678F4F7248D7E1DD8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -331,6 +377,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1036AAFCCE90D680EB50940D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FlowersReminderTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		35FEEE7D67187BE23A3240C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FlowersReminder-FlowersReminderUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D8C5C4DB0B78F8B27D7F99C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlowersReminder/Pods-FlowersReminder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlowersReminder/Pods-FlowersReminder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlowersReminder/Pods-FlowersReminder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		865C257678F4F7248D7E1DD8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlowersReminder-FlowersReminderUITests/Pods-FlowersReminder-FlowersReminderUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlowersReminder-FlowersReminderUITests/Pods-FlowersReminder-FlowersReminderUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlowersReminder-FlowersReminderUITests/Pods-FlowersReminder-FlowersReminderUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF70C1536F5545EF747A9FD4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FlowersReminder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3959F46E28C7609500985023 /* Sources */ = {
@@ -516,6 +665,7 @@
 		};
 		3959F49D28C7609600985023 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF513A4E16F612CE63487D95 /* Pods-FlowersReminder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -545,6 +695,7 @@
 		};
 		3959F49E28C7609600985023 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F27CE4AF63EF55DFCAC06FA /* Pods-FlowersReminder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -574,6 +725,7 @@
 		};
 		3959F4A028C7609600985023 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55583549923FC3A2E8127D29 /* Pods-FlowersReminderTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -594,6 +746,7 @@
 		};
 		3959F4A128C7609600985023 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AB49EA99F3F6F63EA0A9958 /* Pods-FlowersReminderTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -614,6 +767,7 @@
 		};
 		3959F4A328C7609600985023 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E08307BD1DD0E2C036C6B22C /* Pods-FlowersReminder-FlowersReminderUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -632,6 +786,7 @@
 		};
 		3959F4A428C7609600985023 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 094D8733084C1D4F534DE6D6 /* Pods-FlowersReminder-FlowersReminderUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
