@@ -22,6 +22,7 @@
 		3959F4B328C782A900985023 /* AddNewFlower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B228C782A900985023 /* AddNewFlower.swift */; };
 		3959F4B528C782B300985023 /* FlowerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B428C782B300985023 /* FlowerCard.swift */; };
 		3959F4B828C787AA00985023 /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B728C787AA00985023 /* ColorHex.swift */; };
+		3959F4BC28C8D84500985023 /* ActiveAlarmsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4BB28C8D84500985023 /* ActiveAlarmsCell.swift */; };
 		C7EDB8DB3C74769C6154BA90 /* Pods_FlowersReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CC39C96C247AF339AE2D822 /* Pods_FlowersReminder.framework */; };
 		DF718314447AE2FBDDAA5381 /* Pods_FlowersReminder_FlowersReminderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF7DB0207135E0570DB66E6 /* Pods_FlowersReminder_FlowersReminderUITests.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,9 @@
 		3959F4B228C782A900985023 /* AddNewFlower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFlower.swift; sourceTree = "<group>"; };
 		3959F4B428C782B300985023 /* FlowerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCard.swift; sourceTree = "<group>"; };
 		3959F4B728C787AA00985023 /* ColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHex.swift; sourceTree = "<group>"; };
+		3959F4B928C79DF800985023 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3959F4BA28C79DF900985023 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		3959F4BB28C8D84500985023 /* ActiveAlarmsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveAlarmsCell.swift; sourceTree = "<group>"; };
 		55583549923FC3A2E8127D29 /* Pods-FlowersReminderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowersReminderTests.debug.xcconfig"; path = "Target Support Files/Pods-FlowersReminderTests/Pods-FlowersReminderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F27CE4AF63EF55DFCAC06FA /* Pods-FlowersReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowersReminder.release.xcconfig"; path = "Target Support Files/Pods-FlowersReminder/Pods-FlowersReminder.release.xcconfig"; sourceTree = "<group>"; };
 		9FF7DB0207135E0570DB66E6 /* Pods_FlowersReminder_FlowersReminderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlowersReminder_FlowersReminderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +215,7 @@
 		3959F4AB28C77D9D00985023 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3959F4BB28C8D84500985023 /* ActiveAlarmsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -233,7 +238,6 @@
 				55583549923FC3A2E8127D29 /* Pods-FlowersReminderTests.debug.xcconfig */,
 				2AB49EA99F3F6F63EA0A9958 /* Pods-FlowersReminderTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -338,6 +342,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 3959F46928C7609500985023;
 			productRefGroup = 3959F47328C7609500985023 /* Products */;
@@ -489,6 +494,7 @@
 				3959F4AD28C77EA300985023 /* TabBar.swift in Sources */,
 				3959F4B528C782B300985023 /* FlowerCard.swift in Sources */,
 				3959F4B328C782A900985023 /* AddNewFlower.swift in Sources */,
+				3959F4BC28C8D84500985023 /* ActiveAlarmsCell.swift in Sources */,
 				3959F4AF28C7828200985023 /* ListOfFlowers.swift in Sources */,
 				3959F4B128C7829B00985023 /* ActiveAlarms.swift in Sources */,
 				3959F4B828C787AA00985023 /* ColorHex.swift in Sources */,
@@ -534,6 +540,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3959F47C28C7609500985023 /* Base */,
+				3959F4BA28C79DF900985023 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -542,6 +549,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3959F48128C7609500985023 /* Base */,
+				3959F4B928C79DF800985023 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -553,6 +561,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -613,6 +622,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
