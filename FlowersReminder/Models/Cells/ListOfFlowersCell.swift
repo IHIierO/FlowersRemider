@@ -1,13 +1,13 @@
 //
-//  ActiveAlarmsCell.swift
+//  ListOfFlowersCell.swift
 //  FlowersReminder
 //
-//  Created by Artem Vorobev on 07.09.2022.
+//  Created by Artem Vorobev on 09.09.2022.
 //
 
 import UIKit
 
-class ActiveAlarmsCell: UITableViewCell {
+class ListOfFlowersCell: UITableViewCell {
     
     let hStack: UIStackView = {
        let hStack = UIStackView()
@@ -23,7 +23,7 @@ class ActiveAlarmsCell: UITableViewCell {
     let flowerImage: UIImageView = {
        let flowerImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
         flowerImage.image = UIImage(named: "defaultFlower")
-        flowerImage.contentMode = .scaleAspectFit
+        flowerImage.contentMode = .scaleAspectFill
         
         
         flowerImage.translatesAutoresizingMaskIntoConstraints = false
@@ -48,28 +48,20 @@ class ActiveAlarmsCell: UITableViewCell {
         return flowerName
     }()
     
-    let flowerStatus: UILabel = {
-       let flowerStatus = UILabel()
-        flowerStatus.text = "Cегодня полить и удобрить"
-        flowerStatus.adjustsFontSizeToFitWidth = true
-        flowerStatus.translatesAutoresizingMaskIntoConstraints = false
-        return flowerStatus
+    let dateWatering: UILabel = {
+       let dateWatering = UILabel()
+        dateWatering.text = "09.09.2022"
+        dateWatering.adjustsFontSizeToFitWidth = true
+        dateWatering.translatesAutoresizingMaskIntoConstraints = false
+        return dateWatering
     }()
     
-    let compliteButton: UIButton = {
-       let compliteButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        compliteButton.setImage(UIImage(named: "complite"), for: .normal)
-        
-        compliteButton.translatesAutoresizingMaskIntoConstraints = false
-        return compliteButton
-    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.backgroundColor = UIColor(hexString: "#FBDDE7")
         setConstraints()
-        self.selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
@@ -82,26 +74,21 @@ class ActiveAlarmsCell: UITableViewCell {
     
     private func setConstraints(){
         
-        self.contentView.addSubview(compliteButton)
-        NSLayoutConstraint.activate([
-            compliteButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            compliteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
-        ])
-        
         self.addSubview(hStack)
         NSLayoutConstraint.activate([
             hStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
             hStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
             hStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            hStack.trailingAnchor.constraint(equalTo: compliteButton.leadingAnchor, constant: -10),
+            hStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
         ])
         
         hStack.addSubview(flowerImage)
         NSLayoutConstraint.activate([
             flowerImage.topAnchor.constraint(equalTo: hStack.topAnchor, constant: 0),
             flowerImage.bottomAnchor.constraint(equalTo: hStack.bottomAnchor, constant: 0),
-            flowerImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            flowerImage.heightAnchor.constraint(equalToConstant: 50),
+            flowerImage.leadingAnchor.constraint(equalTo: hStack.leadingAnchor, constant: 0),
+            flowerImage.heightAnchor.constraint(equalToConstant: 80),
+            flowerImage.widthAnchor.constraint(equalToConstant: 80)
         ])
         
         hStack.addSubview(vStack)
@@ -120,14 +107,13 @@ class ActiveAlarmsCell: UITableViewCell {
             flowerName.heightAnchor.constraint(equalToConstant: 35),
         ])
         
-        vStack.addSubview(flowerStatus)
+        vStack.addSubview(dateWatering)
         NSLayoutConstraint.activate([
-            flowerStatus.topAnchor.constraint(equalTo: flowerName.bottomAnchor, constant: 5),
-            flowerStatus.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 0),
-            flowerStatus.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: -5),
-            flowerStatus.bottomAnchor.constraint(equalTo: vStack.bottomAnchor, constant: 0),
+            dateWatering.topAnchor.constraint(equalTo: flowerName.bottomAnchor, constant: 5),
+            dateWatering.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 0),
+            dateWatering.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: -5),
+            dateWatering.bottomAnchor.constraint(equalTo: vStack.bottomAnchor, constant: 0),
         ])
         
     }
-
 }
