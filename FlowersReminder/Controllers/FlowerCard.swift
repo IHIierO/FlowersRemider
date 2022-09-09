@@ -86,6 +86,7 @@ class FlowerCard: UIViewController{
         tableView.register(FlowerInfoCell.self, forCellReuseIdentifier: flowerInfoCellId)
         tableView.register(PickerCell.self, forCellReuseIdentifier: pickerCellId)
         tableView.separatorStyle = .none
+        UITableViewHeaderFooterView.appearance().tintColor = .white
         
     }
     
@@ -180,6 +181,18 @@ extension FlowerCard: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath{
+        case [1,0]:
+            let cell = tableView.cellForRow(at: indexPath) as! PickerCell
+            alertDatePicker(label: cell.dateInfo) { (date) in
+                print(date)
+            }
+        default:
+            print("Error")
+        }
     }
 }
     

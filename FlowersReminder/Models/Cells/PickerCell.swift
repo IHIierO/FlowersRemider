@@ -20,8 +20,8 @@ class PickerCell: UITableViewCell {
     
     private var dateLabelData = [
         "Дата полива",
-        "Переодичность полива",
-        "Переодичность удобрения"
+        "Частота полива",
+        "Частота удобрения"
     ]
     
     let dateInfo: UILabel = {
