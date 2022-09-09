@@ -72,6 +72,7 @@ class ActiveAlarms: UIViewController{
         calendar.dataSource = self
         calendar.delegate = self
         calendar.scope = .week
+        calendar.firstWeekday = 2
         openCalendarButton.addTarget(self, action: #selector(openCalendarButtonTapped), for: .touchUpInside)
         
         tableView.dataSource = self

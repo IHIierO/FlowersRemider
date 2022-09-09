@@ -90,5 +90,8 @@ extension ListOfFlowers: UITableViewDelegate, UITableViewDataSource{
         return 90
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let flowerCard = FlowerCard()
+        navigationController?.pushViewController(flowerCard, animated: true)
+    }
 }
