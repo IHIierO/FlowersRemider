@@ -63,6 +63,10 @@ class ActiveAlarmsCell: UITableViewCell {
         compliteButton.translatesAutoresizingMaskIntoConstraints = false
         return compliteButton
     }()
+    
+    weak var activeAlarmsCellDelegate: TapCompliteButtonProtocol?
+    var indexPath: IndexPath?
+    
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -70,13 +74,17 @@ class ActiveAlarmsCell: UITableViewCell {
         self.backgroundColor = UIColor(hexString: "#FBDDE7")
         setConstraints()
         self.selectionStyle = .none
+        compliteButton.addTarget(self, action: #selector(compliteButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-   
+    @objc func compliteButtonTapped(){
+        guard let indexPath = indexPath else {return}
+        activeAlarmsCellDelegate?.compliteButtonTapped(indexPath: indexPath)
+    }
     
     //MARK: Set Constraints
     

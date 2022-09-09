@@ -54,6 +54,13 @@ class ListOfFlowers: UIViewController{
         tableView.separatorStyle = .none
         tableView.register(ListOfFlowersCell.self, forCellReuseIdentifier: listOfFlowersCellId)
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushToAddNewFlower))
+        
+    }
+    
+    @objc func pushToAddNewFlower(){
+        let addNewFlower = AddNewFlower()
+        navigationController?.pushViewController(addNewFlower, animated: true)
     }
     
     private  func setConstraints(){

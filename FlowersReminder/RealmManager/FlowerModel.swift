@@ -14,7 +14,7 @@ class FlowerModel: Object, Identifiable {
     @Persisted var id = UUID()
     @Persisted var flowerName = ""
     @Persisted var flowerImage = Data()
-    @Persisted var tempetature = ""
+    @Persisted var temperature = ""
     @Persisted var sun = ""
     @Persisted var watering = ""
     @Persisted var fertilization = ""

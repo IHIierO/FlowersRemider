@@ -93,7 +93,9 @@ class ActiveAlarms: UIViewController{
 }
 
 
-extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDelegate, UITableViewDataSource {
+extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDelegate, UITableViewDataSource, TapCompliteButtonProtocol {
+    
+    //MARK: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -102,6 +104,8 @@ extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: activeAlarmsCellId, for: indexPath) as! ActiveAlarmsCell
+        cell.activeAlarmsCellDelegate = self
+        cell.indexPath = indexPath
         
         return cell
         
@@ -109,6 +113,23 @@ extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
+    }
+    
+    //MARK: compliteButtonTapped
+    
+    func compliteButtonTapped(indexPath: IndexPath) {
+        print("tap")
+    }
+    
+    //MARK: FSCalendar delegate and dataSource
+    
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        calendarHeightConstraint.constant = bounds.height
+        view.layoutIfNeeded()
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print(date)
     }
     
     
@@ -136,17 +157,6 @@ extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDel
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
-    }
-    
-    //MARK: FSCalendar delegate and dataSource
-    
-    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-        calendarHeightConstraint.constant = bounds.height
-        view.layoutIfNeeded()
-    }
-    
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print(date)
     }
     
 }
