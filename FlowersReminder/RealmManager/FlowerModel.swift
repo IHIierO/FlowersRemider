@@ -23,5 +23,5 @@ class FlowerModel: Object, Identifiable {
     @Persisted var dateFertilizer = Date()
     @Persisted var irrigationFrequency: Int?
     @Persisted var fertilizerFrequency: Int?
-    
+    @Persisted var compliteColor = "#000000"
 }

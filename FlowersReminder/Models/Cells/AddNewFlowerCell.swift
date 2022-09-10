@@ -65,6 +65,8 @@ class AddNewFlowerCell: UITableViewCell {
         iconImage.image = UIImage(systemName: "\(iconImageData[indexPath.row])")
         flowerInfo.placeholder = "\(flowerInfoPlaceholderData[indexPath.row])"
         
+        flowerInfo.tag = indexPath.item
+        
     }
     
     //MARK: Set Constraints
@@ -79,7 +81,7 @@ class AddNewFlowerCell: UITableViewCell {
             iconImage.widthAnchor.constraint(equalToConstant: 35)
         ])
         
-        self.addSubview(flowerInfo)
+        self.contentView.addSubview(flowerInfo)
         NSLayoutConstraint.activate([
             flowerInfo.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             flowerInfo.leadingAnchor.constraint(equalTo: iconImage.trailingAnchor, constant: 10),

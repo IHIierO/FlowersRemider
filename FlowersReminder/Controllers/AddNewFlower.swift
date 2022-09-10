@@ -132,7 +132,7 @@ class AddNewFlower: UIViewController {
                                                                                           
     @objc func saveButtonTapped(){
         
-        let dataImage = NSData(data: flowersImage.image!.jpegData(compressionQuality: 0.9)!)
+        let dataImage = NSData(data: flowersImage.image!.jpegData(compressionQuality: 0.7)!)
 
         self.flowerModel.flowerImage = dataImage as Data
         self.flowerModel.flowerName = flowerName.text
@@ -142,11 +142,11 @@ class AddNewFlower: UIViewController {
         self.flowerModel.fertilization = dataStrings[3]
         self.flowerModel.toxicityForAnimals = dataStrings[4]
 
-//        RealmManager.shared.saveFlowerModel(model: flowerModel)
+        RealmManager.shared.saveFlowerModel(model: flowerModel)
 
         flowerModel = FlowerModel()
         
-//        saveAlert()
+        saveAlert()
     }
     
     @objc func dismissKeyboard() {
