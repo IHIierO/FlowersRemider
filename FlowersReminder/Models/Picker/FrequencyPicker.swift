@@ -8,13 +8,14 @@
 import UIKit
 
 extension UIViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    
    
     func alertIrrigationFrequencyPicker(label:UILabel, complitionHamdler: @escaping (String)->Void){
         
         let alert = UIAlertController(title: "", message: nil, preferredStyle: .actionSheet)
         
         let picker = UIPickerView(frame: CGRect(x: 0, y: -20, width: 250, height: 250))
-       
+        
         picker.center.x = alert.view.center.x
         
         picker.tag = 1
@@ -24,6 +25,22 @@ extension UIViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         alert.view.addSubview(picker)
         
         let ok = UIAlertAction(title: "OK", style: .default) {(action) in
+            
+            if picker.selectedRow(inComponent: 0) == 0{
+                label.text = "Раз в 3 дня"
+            }else if picker.selectedRow(inComponent: 0) == 1{
+                label.text = "Раз в 5 дней"
+            }else if picker.selectedRow(inComponent: 0) == 2{
+                label.text = "Раз в неделю"
+            }else if picker.selectedRow(inComponent: 0) == 3{
+                label.text = "Раз в 2 недели"
+            }else if picker.selectedRow(inComponent: 0) == 4{
+                label.text = "Раз в месяц"
+            }else if picker.selectedRow(inComponent: 0) == 5{
+                label.text = "Раз в два месяца"
+            }
+        
+            complitionHamdler(label.text!)
             
         }
         
@@ -52,6 +69,14 @@ extension UIViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         
         let ok = UIAlertAction(title: "OK", style: .default) {(action) in
             
+            if picker.selectedRow(inComponent: 0) == 0{
+                label.text = "Раз в месяц"
+            }else if picker.selectedRow(inComponent: 0) == 1{
+                label.text = "Раз в 2 месяца"
+            }
+            
+            complitionHamdler(label.text!)
+            
         }
         
         let cancel = UIAlertAction(title: "Отменить", style: .default, handler: nil)
@@ -71,21 +96,9 @@ extension UIViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView.tag == 1{
-            
-            let irrigationFrequencyPickerData = ["Раз в 3 дня",
-                                                 "Раз в пять дней",
-                                                 "Раз в неделю",
-                                                 "Раз в 2 недели",
-                                                 "Раз в месяц",
-                                                 "Раз в два месяца"]
-            
-            return irrigationFrequencyPickerData.count
+            return 6
         } else if pickerView.tag == 2{
-            
-            let fertilizerFrequencyPickerData = ["Раз в месяц",
-                                                 "Раз в два месяца"]
-            
-            return fertilizerFrequencyPickerData.count
+            return 2
         }
         
         return 0
@@ -95,7 +108,7 @@ extension UIViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         
         if pickerView.tag == 1{
             let irrigationFrequencyPickerData = ["Раз в 3 дня",
-                                                 "Раз в пять дней",
+                                                 "Раз в 5 дней",
                                                  "Раз в неделю",
                                                  "Раз в 2 недели",
                                                  "Раз в месяц",
@@ -112,6 +125,6 @@ extension UIViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         
         return ""
     }
-    
+   
 }
 
