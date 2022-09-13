@@ -11,6 +11,7 @@ import RealmSwift
 class FlowerCard: UIViewController{
     
     var flowerModel = FlowerModel()
+    let localRealm = try! Realm()
     
     let flowersImage: UIImageView = {
         let flowersImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
@@ -56,7 +57,7 @@ class FlowerCard: UIViewController{
     }
     
     private func viewControllerConfig(){
-        title = "Гербера"
+        title = "\(flowerModel.flowerName)"
         view.backgroundColor = UIColor(hexString: "#FBDDE7")
         navigationController?.tabBarController?.tabBar.backgroundColor = UIColor(hexString: "#CA587F")
         
@@ -117,6 +118,7 @@ extension FlowerCard: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
         case 0: return "Информация"
@@ -142,22 +144,27 @@ extension FlowerCard: UITableViewDelegate, UITableViewDataSource{
         case [0,0] :
             let cell = tableView.dequeueReusableCell(withIdentifier: flowerInfoCellId, for: indexPath) as! FlowerInfoCell
             cell.cellConfig(indexPath: indexPath)
+            cell.flowerInfo.text = infoData[indexPath.row]
             return cell
         case [0,1] :
             let cell = tableView.dequeueReusableCell(withIdentifier: flowerInfoCellId, for: indexPath) as! FlowerInfoCell
             cell.cellConfig(indexPath: indexPath)
+            cell.flowerInfo.text = infoData[indexPath.row]
             return cell
         case [0,2] :
             let cell = tableView.dequeueReusableCell(withIdentifier: flowerInfoCellId, for: indexPath) as! FlowerInfoCell
             cell.cellConfig(indexPath: indexPath)
+            cell.flowerInfo.text = infoData[indexPath.row]
             return cell
         case [0,3] :
             let cell = tableView.dequeueReusableCell(withIdentifier: flowerInfoCellId, for: indexPath) as! FlowerInfoCell
             cell.cellConfig(indexPath: indexPath)
+            cell.flowerInfo.text = infoData[indexPath.row]
             return cell
         case [0,4] :
             let cell = tableView.dequeueReusableCell(withIdentifier: flowerInfoCellId, for: indexPath) as! FlowerInfoCell
             cell.cellConfig(indexPath: indexPath)
+            cell.flowerInfo.text = infoData[indexPath.row]
             return cell
         case [1,0] :
             let cell = tableView.dequeueReusableCell(withIdentifier: pickerCellId, for: indexPath) as! PickerCell
@@ -187,8 +194,12 @@ extension FlowerCard: UITableViewDelegate, UITableViewDataSource{
         switch indexPath{
         case [1,0]:
             let cell = tableView.cellForRow(at: indexPath) as! PickerCell
-            alertDatePicker(label: cell.dateInfo) { (date) in
-                print(date)
+            alertDatePicker(label: cell.dateInfo) { [self] (date) in
+                try! localRealm.write{
+                    flowerModel.dateWatering = date
+                    flowerModel.dateFertilizer = date
+                    localRealm.add(flowerModel)
+                }
             }
         case [1,1]:
             let cell = tableView.cellForRow(at: indexPath) as! PickerCell

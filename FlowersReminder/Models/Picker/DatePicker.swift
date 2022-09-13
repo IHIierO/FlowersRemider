@@ -22,8 +22,10 @@ extension UIViewController{
         let ok = UIAlertAction(title: "OK", style: .default) {(action) in
             
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd.mm.yyyy"
+            dateFormatter.dateFormat = "dd MMMM yyyy"
             let dateString = dateFormatter.string(from: datePicker.date)
+            let date = datePicker.date
+            complitionHamdler(date)
             
             label.text = dateString
         

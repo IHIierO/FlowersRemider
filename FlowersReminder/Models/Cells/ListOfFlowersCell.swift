@@ -68,7 +68,15 @@ class ListOfFlowersCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-   
+    func cellConfig(indexPath: IndexPath, model: FlowerModel){
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM yyyy"
+        
+        flowerName.text = model.flowerName
+        dateWatering.text = dateFormatter.string(from: model.dateWatering)
+        
+    }
     
     //MARK: Set Constraints
     

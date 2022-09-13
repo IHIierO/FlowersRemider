@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ListOfFlowers: UIViewController{
+    
+    let localRealm = try! Realm()
+    var flowerModel: Results<FlowerModel>!
     
     let tableView: UITableView = {
        let tableview = UITableView()
@@ -17,11 +21,17 @@ class ListOfFlowers: UIViewController{
     
     private let listOfFlowersCellId = "listOfFlowersCellId"
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.reloadData()
         viewControllerConfig()
         setConstraints()
+        flowerModel = localRealm.objects(FlowerModel.self)
         
     }
     
@@ -77,11 +87,12 @@ class ListOfFlowers: UIViewController{
 //MARK: UITableViewDelegate, UITableViewDataSource
 extension ListOfFlowers: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return flowerModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: listOfFlowersCellId, for: indexPath) as! ListOfFlowersCell
+        cell.cellConfig(indexPath: indexPath, model: flowerModel[indexPath.row])
         
         return cell
     }
@@ -92,6 +103,7 @@ extension ListOfFlowers: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let flowerCard = FlowerCard()
+        flowerCard.flowerModel = flowerModel[indexPath.row]
         navigationController?.pushViewController(flowerCard, animated: true)
     }
 }
