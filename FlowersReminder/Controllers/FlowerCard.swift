@@ -190,6 +190,17 @@ extension FlowerCard: UITableViewDelegate, UITableViewDataSource{
             alertDatePicker(label: cell.dateInfo) { (date) in
                 print(date)
             }
+        case [1,1]:
+            let cell = tableView.cellForRow(at: indexPath) as! PickerCell
+            alertIrrigationFrequencyPicker(label: cell.dateInfo) { String in
+                print(String)
+            }
+        case [1,2]:
+            let cell = tableView.cellForRow(at: indexPath) as! PickerCell
+            alertFertilizerFrequencyPicker(label: cell.dateInfo) { String in
+                print(String)
+            }
+            
         default:
             print("Error")
         }
