@@ -22,9 +22,7 @@ class ActiveAlarmsCell: UITableViewCell {
     
     let flowerImage: UIImageView = {
        let flowerImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-        flowerImage.image = UIImage(named: "defaultFlower")
-        flowerImage.contentMode = .scaleAspectFit
-        
+        flowerImage.contentMode = .scaleAspectFill
         
         flowerImage.translatesAutoresizingMaskIntoConstraints = false
         return flowerImage
@@ -41,7 +39,6 @@ class ActiveAlarmsCell: UITableViewCell {
     
     let flowerName: UILabel = {
        let flowerName = UILabel()
-        flowerName.text = "Гербера"
         flowerName.adjustsFontSizeToFitWidth = true
         
         flowerName.translatesAutoresizingMaskIntoConstraints = false
@@ -86,6 +83,11 @@ class ActiveAlarmsCell: UITableViewCell {
         activeAlarmsCellDelegate?.compliteButtonTapped(indexPath: indexPath)
     }
     
+    func cellConfig(indexPath: IndexPath, model: FlowerModel){
+        flowerImage.image = UIImage(data: model.flowerImage)
+        flowerName.text = model.flowerName
+    }
+    
     //MARK: Set Constraints
     
     private func setConstraints(){
@@ -108,8 +110,9 @@ class ActiveAlarmsCell: UITableViewCell {
         NSLayoutConstraint.activate([
             flowerImage.topAnchor.constraint(equalTo: hStack.topAnchor, constant: 0),
             flowerImage.bottomAnchor.constraint(equalTo: hStack.bottomAnchor, constant: 0),
-            flowerImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            flowerImage.leadingAnchor.constraint(equalTo: hStack.leadingAnchor, constant: 0),
             flowerImage.heightAnchor.constraint(equalToConstant: 50),
+            flowerImage.widthAnchor.constraint(equalToConstant: 80)
         ])
         
         hStack.addSubview(vStack)
@@ -123,7 +126,7 @@ class ActiveAlarmsCell: UITableViewCell {
         vStack.addSubview(flowerName)
         NSLayoutConstraint.activate([
             flowerName.topAnchor.constraint(equalTo: vStack.topAnchor, constant: 5),
-            flowerName.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 0),
+            flowerName.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 10),
             flowerName.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: -5),
             flowerName.heightAnchor.constraint(equalToConstant: 35),
         ])
@@ -131,7 +134,7 @@ class ActiveAlarmsCell: UITableViewCell {
         vStack.addSubview(flowerStatus)
         NSLayoutConstraint.activate([
             flowerStatus.topAnchor.constraint(equalTo: flowerName.bottomAnchor, constant: 5),
-            flowerStatus.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 0),
+            flowerStatus.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 10),
             flowerStatus.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: -5),
             flowerStatus.bottomAnchor.constraint(equalTo: vStack.bottomAnchor, constant: 0),
         ])

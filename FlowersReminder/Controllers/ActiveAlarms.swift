@@ -11,6 +11,9 @@ import RealmSwift
 
 class ActiveAlarms: UIViewController{
     
+    let localRealm = try! Realm()
+    var flowerModel: Results<FlowerModel>!
+    
     var calendarHeightConstraint: NSLayoutConstraint!
     
     private var calendar: FSCalendar = {
@@ -37,11 +40,15 @@ class ActiveAlarms: UIViewController{
     
     let activeAlarmsCellId = "activeAlarmsCellId"
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewControllerConfig()
+        alarmOnDay(date: calendar.today!)
         
     }
     
@@ -91,21 +98,38 @@ class ActiveAlarms: UIViewController{
             openCalendarButton.setTitle("Открыть календарь", for: .normal)
         }
     }
+    
+    private func alarmOnDay(date: Date){
+        let dateStart = date
+        let dateEnd: Date = {
+            let components = DateComponents(day: 1, second: -1)
+            return Calendar.current.date(byAdding: components, to: dateStart)!
+        }()
+        
+        let dateWateringPredicate = NSPredicate(format: "dateWatering BETWEEN %@", [dateStart, dateEnd])
+        let datedFertilizerPredicate = NSPredicate(format: "dateFertilizer BETWEEN %@", [dateStart, dateEnd])
+        let compound = NSCompoundPredicate(type: .or, subpredicates: [dateWateringPredicate, datedFertilizerPredicate])
+        
+        flowerModel = localRealm.objects(FlowerModel.self).filter(compound)
+        
+        tableView.reloadData()
+        
+    }
 }
-
 
 extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDelegate, UITableViewDataSource, TapCompliteButtonProtocol {
     
     //MARK: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return flowerModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: activeAlarmsCellId, for: indexPath) as! ActiveAlarmsCell
         cell.activeAlarmsCellDelegate = self
+        cell.cellConfig(indexPath: indexPath, model: flowerModel[indexPath.row])
         cell.indexPath = indexPath
         
         return cell
@@ -130,9 +154,8 @@ extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDel
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print(date)
+        alarmOnDay(date: date)
     }
-    
     
     //MARK: Set constraints
     
