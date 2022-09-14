@@ -15,7 +15,6 @@ class FlowerCard: UIViewController{
     
     let flowersImage: UIImageView = {
         let flowersImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        flowersImage.image = UIImage(named: "defaultFlower")
         flowersImage.contentMode = .scaleAspectFill
         flowersImage.clipsToBounds = true
         flowersImage.translatesAutoresizingMaskIntoConstraints = false
@@ -47,13 +46,42 @@ class FlowerCard: UIViewController{
             "\(flowerModel.fertilization)",
             "\(flowerModel.toxicityForAnimals)"
         ]
-        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM yyyy"
         pickerData = [
-            "",
-            "",
-            ""
+            "\(dateFormatter.string(from: flowerModel.dateWatering))",
+            "\(irrigationFrequencyLabel())",
+            "\(fertilizerFrequencyLabel())"
         ]
         
+    }
+    
+    private func fertilizerFrequencyLabel() -> String{
+        
+        if flowerModel.fertilizerFrequency == 30{
+            return "Раз в месяц"
+        }else if flowerModel.fertilizerFrequency == 61{
+            return "Раз в 2 месяца"
+        }
+        return "Выбери переодичность удобрения"
+    }
+    
+    private func irrigationFrequencyLabel() -> String{
+        
+        if flowerModel.irrigationFrequency == 3{
+            return "Раз в 3 дня"
+        }else if flowerModel.irrigationFrequency == 5{
+            return "Раз в 5 дней"
+        }else if flowerModel.irrigationFrequency == 7{
+            return "Раз в неделю"
+        }else if flowerModel.irrigationFrequency == 14{
+            return "Раз в 2 недели"
+        }else if flowerModel.irrigationFrequency == 30{
+            return "Раз в месяц"
+        }else if flowerModel.irrigationFrequency == 61{
+            return "Раз в два месяца"
+        }
+        return "Выбери переодичность полива"
     }
     
     private func viewControllerConfig(){
@@ -80,6 +108,7 @@ class FlowerCard: UIViewController{
         
         flowersImage.layer.borderWidth = 1
         flowersImage.layer.cornerRadius = 10
+        flowersImage.image = UIImage(data: flowerModel.flowerImage)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -127,7 +156,6 @@ extension FlowerCard: UITableViewDelegate, UITableViewDataSource{
         default:
             return ""
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -139,7 +167,6 @@ extension FlowerCard: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath{
         case [0,0] :
             let cell = tableView.dequeueReusableCell(withIdentifier: flowerInfoCellId, for: indexPath) as! FlowerInfoCell
@@ -169,21 +196,23 @@ extension FlowerCard: UITableViewDelegate, UITableViewDataSource{
         case [1,0] :
             let cell = tableView.dequeueReusableCell(withIdentifier: pickerCellId, for: indexPath) as! PickerCell
             cell.cellConfig(indexPath: indexPath)
+            cell.dateInfo.text = pickerData[0]
             return cell
         case [1,1] :
             let cell = tableView.dequeueReusableCell(withIdentifier: pickerCellId, for: indexPath) as! PickerCell
             cell.cellConfig(indexPath: indexPath)
+            cell.dateInfo.text = pickerData[1]
             return cell
         case [1,2] :
             let cell = tableView.dequeueReusableCell(withIdentifier: pickerCellId, for: indexPath) as! PickerCell
             cell.cellConfig(indexPath: indexPath)
+            cell.dateInfo.text = pickerData[2]
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: flowerInfoCellId, for: indexPath) as! FlowerInfoCell
             cell.cellConfig(indexPath: indexPath)
             return cell
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -203,19 +232,41 @@ extension FlowerCard: UITableViewDelegate, UITableViewDataSource{
             }
         case [1,1]:
             let cell = tableView.cellForRow(at: indexPath) as! PickerCell
-            alertIrrigationFrequencyPicker(label: cell.dateInfo) { String in
-                print(String)
+            alertIrrigationFrequencyPicker(label: cell.dateInfo) { [self]  String in
+                try! localRealm.write{
+                    if String == "Раз в 3 дня"{
+                        flowerModel.irrigationFrequency = 3
+                    }else if String ==  "Раз в 5 дней"{
+                        flowerModel.irrigationFrequency = 5
+                    }else if String ==  "Раз в неделю"{
+                        flowerModel.irrigationFrequency = 7
+                    }else if String ==  "Раз в 2 недели"{
+                        flowerModel.irrigationFrequency = 14
+                    }else if String ==  "Раз в месяц"{
+                        flowerModel.irrigationFrequency = 30
+                    }else if String ==  "Раз в два месяца"{
+                        flowerModel.irrigationFrequency = 61
+                    }
+                    localRealm.add(flowerModel)
+                }
             }
         case [1,2]:
             let cell = tableView.cellForRow(at: indexPath) as! PickerCell
-            alertFertilizerFrequencyPicker(label: cell.dateInfo) { String in
-                print(String)
+            alertFertilizerFrequencyPicker(label: cell.dateInfo) { [self] String in
+                try! localRealm.write{
+                    if String == "Раз в месяц"{
+                        flowerModel.fertilizerFrequency = 30
+                    }else if String ==  "Раз в 2 месяца"{
+                        flowerModel.fertilizerFrequency = 61
+                    }
+                    localRealm.add(flowerModel)
+                }
             }
-            
         default:
             print("Error")
         }
     }
+    
 }
     
     

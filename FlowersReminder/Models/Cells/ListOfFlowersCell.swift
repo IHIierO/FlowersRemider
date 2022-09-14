@@ -75,6 +75,7 @@ class ListOfFlowersCell: UITableViewCell {
         
         flowerName.text = model.flowerName
         dateWatering.text = dateFormatter.string(from: model.dateWatering)
+        flowerImage.image = UIImage(data: model.flowerImage)
         
     }
     
@@ -110,7 +111,7 @@ class ListOfFlowersCell: UITableViewCell {
         vStack.addSubview(flowerName)
         NSLayoutConstraint.activate([
             flowerName.topAnchor.constraint(equalTo: vStack.topAnchor, constant: 5),
-            flowerName.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 0),
+            flowerName.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 10),
             flowerName.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: -5),
             flowerName.heightAnchor.constraint(equalToConstant: 35),
         ])
@@ -118,7 +119,7 @@ class ListOfFlowersCell: UITableViewCell {
         vStack.addSubview(dateWatering)
         NSLayoutConstraint.activate([
             dateWatering.topAnchor.constraint(equalTo: flowerName.bottomAnchor, constant: 5),
-            dateWatering.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 0),
+            dateWatering.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 10),
             dateWatering.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: -5),
             dateWatering.bottomAnchor.constraint(equalTo: vStack.bottomAnchor, constant: 0),
         ])
