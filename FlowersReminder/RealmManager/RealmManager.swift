@@ -20,4 +20,10 @@ class RealmManager{
         }
     }
     
+    func updateCompliteColor(model: FlowerModel, hex: String){
+        try! localRealm.write{
+            model.compliteColor = hex
+        }
+    }
+    
 }

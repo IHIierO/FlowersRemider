@@ -73,6 +73,8 @@ class ListOfFlowers: UIViewController{
         navigationController?.pushViewController(addNewFlower, animated: true)
     }
     
+    //MARK: setConstraints
+    
     private  func setConstraints(){
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
@@ -81,6 +83,12 @@ class ListOfFlowers: UIViewController{
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
+    }
+    
+    //MARK: changeDate logic
+    
+    private func changeDay(){
+        
     }
 }
 

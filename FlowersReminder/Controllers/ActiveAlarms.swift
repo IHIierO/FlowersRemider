@@ -143,7 +143,12 @@ extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDel
     //MARK: compliteButtonTapped
     
     func compliteButtonTapped(indexPath: IndexPath) {
-        print("tap")
+        if flowerModel[indexPath.row].compliteColor == "#000000"{
+            RealmManager.shared.updateCompliteColor(model: flowerModel[indexPath.row], hex: "#D3D3D3")
+        }else if flowerModel[indexPath.row].compliteColor == "#D3D3D3"{
+            RealmManager.shared.updateCompliteColor(model: flowerModel[indexPath.row], hex: "#000000")
+        }
+        tableView.reloadData()
     }
     
     //MARK: FSCalendar delegate and dataSource

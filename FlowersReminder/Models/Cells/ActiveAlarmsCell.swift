@@ -86,6 +86,9 @@ class ActiveAlarmsCell: UITableViewCell {
     func cellConfig(indexPath: IndexPath, model: FlowerModel){
         flowerImage.image = UIImage(data: model.flowerImage)
         flowerName.text = model.flowerName
+        flowerName.textColor = UIColor(hexString: "\(model.compliteColor)")
+        flowerStatus.textColor = UIColor(hexString: "\(model.compliteColor)")
+        
     }
     
     //MARK: Set Constraints
