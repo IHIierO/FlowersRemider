@@ -47,7 +47,6 @@ class ActiveAlarmsCell: UITableViewCell {
     
     let flowerStatus: UILabel = {
        let flowerStatus = UILabel()
-        flowerStatus.text = "Cегодня полить и удобрить"
         flowerStatus.adjustsFontSizeToFitWidth = true
         flowerStatus.translatesAutoresizingMaskIntoConstraints = false
         return flowerStatus
@@ -83,11 +82,21 @@ class ActiveAlarmsCell: UITableViewCell {
         activeAlarmsCellDelegate?.compliteButtonTapped(indexPath: indexPath)
     }
     
-    func cellConfig(indexPath: IndexPath, model: FlowerModel){
+    func cellConfig(indexPath: IndexPath, model: FlowerModel,date: Date){
         flowerImage.image = UIImage(data: model.flowerImage)
         flowerName.text = model.flowerName
         flowerName.textColor = UIColor(hexString: "\(model.compliteColor)")
         flowerStatus.textColor = UIColor(hexString: "\(model.compliteColor)")
+        
+       if Calendar.current.isDate(model.dateWatering, equalTo: date, toGranularity: .day){
+                flowerStatus.text = "Cегодня только полить"
+            }
+            if Calendar.current.isDate(model.dateFertilizer, equalTo: date, toGranularity: .day) {
+                flowerStatus.text = "Cегодня только удобрить"
+            }
+            if Calendar.current.isDate(model.dateWatering, equalTo: model.dateFertilizer, toGranularity: .day){
+                flowerStatus.text = "Cегодня полить и удобрить"
+            }
         
     }
     

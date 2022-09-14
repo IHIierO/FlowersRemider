@@ -129,7 +129,7 @@ extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDel
         
         let cell = tableView.dequeueReusableCell(withIdentifier: activeAlarmsCellId, for: indexPath) as! ActiveAlarmsCell
         cell.activeAlarmsCellDelegate = self
-        cell.cellConfig(indexPath: indexPath, model: flowerModel[indexPath.row])
+        cell.cellConfig(indexPath: indexPath, model: flowerModel[indexPath.row],date: calendar.selectedDate ?? calendar.today!)
         cell.indexPath = indexPath
         
         return cell
