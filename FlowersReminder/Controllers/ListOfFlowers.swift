@@ -32,6 +32,7 @@ class ListOfFlowers: UIViewController{
         viewControllerConfig()
         setConstraints()
         flowerModel = localRealm.objects(FlowerModel.self)
+        changeDay()
         
     }
     
@@ -89,6 +90,30 @@ class ListOfFlowers: UIViewController{
     
     private func changeDay(){
         
+        for flower in flowerModel{
+            let today = Date()
+            let verificationDay: Date = {
+                let components = DateComponents(day: -1)
+                return Calendar.current.date(byAdding: components, to: today)!
+            }()
+            
+            let irrigationDay = DateComponents(day: flower.irrigationFrequency)
+            let fertilizerDay = DateComponents(day: flower.fertilizerFrequency)
+            
+            
+            if flower.compliteColor == "#D3D3D3" && Calendar.current.isDate(flower.dateWatering, equalTo: verificationDay, toGranularity: .day){
+                try! localRealm.write{
+                    flower.dateWatering = Calendar.current.date(byAdding: irrigationDay, to: flower.dateWatering)!
+                    flower.dateFertilizer = Calendar.current.date(byAdding: fertilizerDay, to: flower.dateFertilizer)!
+                    flower.compliteColor = "#000000"
+                }
+            }else if flower.compliteColor == "#000000" && Calendar.current.isDate(flower.dateWatering, equalTo: verificationDay, toGranularity: .day){
+                try! localRealm.write{
+                    flower.dateWatering = Calendar.current.date(byAdding: .init(day: 1), to: flower.dateWatering)!
+                    flower.dateFertilizer = Calendar.current.date(byAdding: .init(day: 1), to: flower.dateFertilizer)!
+                }
+            }
+        }
     }
 }
 
