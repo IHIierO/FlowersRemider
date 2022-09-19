@@ -8,6 +8,7 @@
 import UIKit
 import FSCalendar
 import RealmSwift
+import UserNotifications
 
 class ActiveAlarms: UIViewController{
     
@@ -112,8 +113,31 @@ class ActiveAlarms: UIViewController{
         
         flowerModel = localRealm.objects(FlowerModel.self).filter(compound)
         
+        if !flowerModel.isEmpty {
+            notificationOnDay()
+        }
+        
         tableView.reloadData()
         
+    }
+    
+    func notificationOnDay(){
+        let content = UNMutableNotificationContent()
+        content.title = "Не забудь полить цветы"
+        content.body = "Сегодня есть цветы, которые нужно полить"
+        content.sound = .default
+        content.categoryIdentifier = "notificationOnDay"
+        content.badge = NSNumber(value: UIApplication.shared.applicationIconBadgeNumber + 1)
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = 15
+        dateComponents.minute = 50
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let request = UNNotificationRequest.init(identifier: "notificationOnDay", content: content, trigger: trigger)
+
+        let center = UNUserNotificationCenter.current()
+        center.add(request)
     }
 }
 
