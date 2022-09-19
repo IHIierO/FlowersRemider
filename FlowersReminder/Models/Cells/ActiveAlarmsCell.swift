@@ -107,7 +107,9 @@ class ActiveAlarmsCell: UITableViewCell {
         self.contentView.addSubview(compliteButton)
         NSLayoutConstraint.activate([
             compliteButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            compliteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
+            compliteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            compliteButton.heightAnchor.constraint(equalToConstant: 40),
+            compliteButton.widthAnchor.constraint(equalToConstant: 40)
         ])
         
         self.addSubview(hStack)

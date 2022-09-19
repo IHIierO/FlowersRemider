@@ -107,10 +107,16 @@ class ListOfFlowers: UIViewController{
                     flower.dateFertilizer = Calendar.current.date(byAdding: fertilizerDay, to: flower.dateFertilizer)!
                     flower.compliteColor = "#000000"
                 }
-            }else if flower.compliteColor == "#000000" && Calendar.current.isDate(flower.dateWatering, equalTo: verificationDay, toGranularity: .day){
+            }
+            if flower.compliteColor == "#000000" && Calendar.current.isDate(flower.dateWatering, equalTo: verificationDay, toGranularity: .day){
                 try! localRealm.write{
                     flower.dateWatering = Calendar.current.date(byAdding: .init(day: 1), to: flower.dateWatering)!
                     flower.dateFertilizer = Calendar.current.date(byAdding: .init(day: 1), to: flower.dateFertilizer)!
+                }
+            }
+            if flower.dateFertilizer < flower.dateWatering{
+                try! localRealm.write{
+                    flower.dateFertilizer = flower.dateWatering
                 }
             }
         }
