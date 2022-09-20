@@ -18,9 +18,9 @@ class TabBar: UITabBarController{
     private func tabBarConfig(){
         
         let listOfFlowersViewController = createNavigationControllers(viewControllers: ListOfFlowers(), tabBarItemName: "Мои Цветы", tabBarItemImage: "camera.macro")
-        let ActiveAlarmViewController = createNavigationControllers(viewControllers: ActiveAlarms(), tabBarItemName: "Будильники", tabBarItemImage: "alarm.fill")
+        let activeAlarmViewController = createNavigationControllers(viewControllers: ActiveAlarms(), tabBarItemName: "Будильники", tabBarItemImage: "alarm.fill")
         
-        viewControllers = [listOfFlowersViewController, ActiveAlarmViewController]
+        viewControllers = [listOfFlowersViewController, activeAlarmViewController]
         
         self.tabBar.tintColor = UIColor(hexString: "#92CD5A")
         self.tabBar.unselectedItemTintColor = UIColor(hexString: "#ECFBDE")
@@ -29,7 +29,8 @@ class TabBar: UITabBarController{
     
     private func createNavigationControllers(viewControllers: UIViewController, tabBarItemName: String, tabBarItemImage: String) -> UINavigationController{
         
-        let tabBarItem = UITabBarItem(title: tabBarItemName, image: UIImage(systemName: tabBarItemImage), tag: 0)
+        let tabBarItem = UITabBarItem(title: tabBarItemName, image: UIImage(systemName: tabBarItemImage)?.withAlignmentRectInsets(.init(top: 10, left: 0, bottom: 0, right: 0)), tag: 0)
+        tabBarItem.titlePositionAdjustment = .init(horizontal: 0, vertical: 10 )
         
         
         let navigationController = UINavigationController(rootViewController: viewControllers)

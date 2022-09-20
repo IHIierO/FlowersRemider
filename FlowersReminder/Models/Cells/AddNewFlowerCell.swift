@@ -12,7 +12,7 @@ class AddNewFlowerCell: UITableViewCell {
     var callback: ((String) ->())?
     
     let iconImage: UIImageView = {
-       let iconImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+       let iconImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         iconImage.contentMode = .scaleAspectFill
         
         

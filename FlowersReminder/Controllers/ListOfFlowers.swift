@@ -65,6 +65,7 @@ class ListOfFlowers: UIViewController{
         tableView.separatorStyle = .none
         tableView.register(ListOfFlowersCell.self, forCellReuseIdentifier: listOfFlowersCellId)
         
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushToAddNewFlower))
         
     }
@@ -80,7 +81,7 @@ class ListOfFlowers: UIViewController{
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])

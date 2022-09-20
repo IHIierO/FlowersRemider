@@ -125,7 +125,6 @@ class ActiveAlarmsCell: UITableViewCell {
             flowerImage.topAnchor.constraint(equalTo: hStack.topAnchor, constant: 0),
             flowerImage.bottomAnchor.constraint(equalTo: hStack.bottomAnchor, constant: 0),
             flowerImage.leadingAnchor.constraint(equalTo: hStack.leadingAnchor, constant: 0),
-            flowerImage.heightAnchor.constraint(equalToConstant: 50),
             flowerImage.widthAnchor.constraint(equalToConstant: 80)
         ])
         
