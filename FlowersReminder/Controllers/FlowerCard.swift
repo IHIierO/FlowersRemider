@@ -77,12 +77,17 @@ class FlowerCard: UICollectionViewController{
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: flowerInfoCellID, for: indexPath) as! FlowerInfoCVCell
         cell.cellConfig(indexPath: indexPath)
+        cell.flowerInfo.text = infoData[indexPath.row]
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: flowerCardHeaderID, for: indexPath) as! FlowerCardHeader
-        header.flowerModel = flowerModel
+        header.flowersImage.image = UIImage(data: flowerModel.flowerImage)
+        header.flowerName.text = flowerModel.flowerName
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM yyyy"
+        header.dateWatering.text = dateFormatter.string(from: flowerModel.dateWatering)
         return header
     }
     

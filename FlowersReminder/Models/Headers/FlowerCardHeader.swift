@@ -52,6 +52,15 @@ class FlowerCardHeader: UICollectionReusableView {
         return dateWatering
     }()
     
+    let rectangle: UIView = {
+       let rectangle = UIView()
+        rectangle.backgroundColor = .black.withAlphaComponent(0.3)
+        rectangle.layer.cornerRadius = 2.5
+        
+        rectangle.translatesAutoresizingMaskIntoConstraints = false
+        return rectangle
+    }()
+    
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -83,12 +92,19 @@ class FlowerCardHeader: UICollectionReusableView {
             vStack.heightAnchor.constraint(equalToConstant: 80)
         ])
         
+        vStack.addSubview(rectangle)
+        NSLayoutConstraint.activate([
+            rectangle.topAnchor.constraint(equalTo: vStack.topAnchor, constant: 4),
+            rectangle.centerXAnchor.constraint(equalTo: vStack.centerXAnchor),
+            rectangle.widthAnchor.constraint(equalToConstant: 30),
+            rectangle.heightAnchor.constraint(equalToConstant: 5)
+        ])
+        
         vStack.addSubview(flowerName)
         NSLayoutConstraint.activate([
-            flowerName.topAnchor.constraint(equalTo: vStack.topAnchor, constant: 5),
+            flowerName.topAnchor.constraint(equalTo: rectangle.bottomAnchor, constant: 5),
             flowerName.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 10),
             flowerName.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: -5),
-//            flowerName.heightAnchor.constraint(equalToConstant: 55),
         ])
         
         vStack.addSubview(dateWatering)
