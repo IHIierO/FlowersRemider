@@ -20,7 +20,7 @@
 		3959F4AF28C7828200985023 /* ListOfFlowers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4AE28C7828200985023 /* ListOfFlowers.swift */; };
 		3959F4B128C7829B00985023 /* ActiveAlarms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B028C7829B00985023 /* ActiveAlarms.swift */; };
 		3959F4B328C782A900985023 /* AddNewFlower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B228C782A900985023 /* AddNewFlower.swift */; };
-		3959F4B528C782B300985023 /* FlowerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B428C782B300985023 /* FlowerCard.swift */; };
+		3959F4B528C782B300985023 /* FlowerCardOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B428C782B300985023 /* FlowerCardOld.swift */; };
 		3959F4B828C787AA00985023 /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4B728C787AA00985023 /* ColorHex.swift */; };
 		3959F4BC28C8D84500985023 /* ActiveAlarmsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4BB28C8D84500985023 /* ActiveAlarmsCell.swift */; };
 		3959F4BE28CB491400985023 /* FlowerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4BD28CB491400985023 /* FlowerModel.swift */; };
@@ -34,6 +34,10 @@
 		3959F4CF28CCC90000985023 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4CE28CCC90000985023 /* RealmManager.swift */; };
 		3959F4D128CCCA3A00985023 /* SaveAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4D028CCCA3A00985023 /* SaveAlert.swift */; };
 		3959F4D328D0B14900985023 /* FrequencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4D228D0B14900985023 /* FrequencyPicker.swift */; };
+		3959F4D528D9C18200985023 /* FlowerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4D428D9C18200985023 /* FlowerCard.swift */; };
+		3959F4D828D9C60600985023 /* FlowerCardHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4D728D9C60600985023 /* FlowerCardHeader.swift */; };
+		3959F4DA28D9DD3700985023 /* FlowerCardHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4D928D9DD3700985023 /* FlowerCardHeaderLayout.swift */; };
+		3959F4DC28D9E68600985023 /* FlowerInfoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4DB28D9E68600985023 /* FlowerInfoCVCell.swift */; };
 		C7EDB8DB3C74769C6154BA90 /* Pods_FlowersReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CC39C96C247AF339AE2D822 /* Pods_FlowersReminder.framework */; };
 		DF718314447AE2FBDDAA5381 /* Pods_FlowersReminder_FlowersReminderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF7DB0207135E0570DB66E6 /* Pods_FlowersReminder_FlowersReminderUITests.framework */; };
 /* End PBXBuildFile section */
@@ -75,7 +79,7 @@
 		3959F4AE28C7828200985023 /* ListOfFlowers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFlowers.swift; sourceTree = "<group>"; };
 		3959F4B028C7829B00985023 /* ActiveAlarms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveAlarms.swift; sourceTree = "<group>"; };
 		3959F4B228C782A900985023 /* AddNewFlower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFlower.swift; sourceTree = "<group>"; };
-		3959F4B428C782B300985023 /* FlowerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCard.swift; sourceTree = "<group>"; };
+		3959F4B428C782B300985023 /* FlowerCardOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCardOld.swift; sourceTree = "<group>"; };
 		3959F4B728C787AA00985023 /* ColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHex.swift; sourceTree = "<group>"; };
 		3959F4B928C79DF800985023 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3959F4BA28C79DF900985023 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -91,6 +95,10 @@
 		3959F4CE28CCC90000985023 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		3959F4D028CCCA3A00985023 /* SaveAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAlert.swift; sourceTree = "<group>"; };
 		3959F4D228D0B14900985023 /* FrequencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyPicker.swift; sourceTree = "<group>"; };
+		3959F4D428D9C18200985023 /* FlowerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCard.swift; sourceTree = "<group>"; };
+		3959F4D728D9C60600985023 /* FlowerCardHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCardHeader.swift; sourceTree = "<group>"; };
+		3959F4D928D9DD3700985023 /* FlowerCardHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCardHeaderLayout.swift; sourceTree = "<group>"; };
+		3959F4DB28D9E68600985023 /* FlowerInfoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerInfoCVCell.swift; sourceTree = "<group>"; };
 		55583549923FC3A2E8127D29 /* Pods-FlowersReminderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowersReminderTests.debug.xcconfig"; path = "Target Support Files/Pods-FlowersReminderTests/Pods-FlowersReminderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F27CE4AF63EF55DFCAC06FA /* Pods-FlowersReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowersReminder.release.xcconfig"; path = "Target Support Files/Pods-FlowersReminder/Pods-FlowersReminder.release.xcconfig"; sourceTree = "<group>"; };
 		9FF7DB0207135E0570DB66E6 /* Pods_FlowersReminder_FlowersReminderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlowersReminder_FlowersReminderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +193,7 @@
 		3959F4A528C77D2D00985023 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3959F4D628D9C5E100985023 /* Headers */,
 				3959F4AB28C77D9D00985023 /* Cells */,
 				3959F4A928C77D6800985023 /* Alert */,
 				3959F4AA28C77D7100985023 /* Picker */,
@@ -199,7 +208,8 @@
 				3959F4AE28C7828200985023 /* ListOfFlowers.swift */,
 				3959F4B028C7829B00985023 /* ActiveAlarms.swift */,
 				3959F4B228C782A900985023 /* AddNewFlower.swift */,
-				3959F4B428C782B300985023 /* FlowerCard.swift */,
+				3959F4B428C782B300985023 /* FlowerCardOld.swift */,
+				3959F4D428D9C18200985023 /* FlowerCard.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -249,6 +259,7 @@
 				3959F4C128CB534200985023 /* AddNewFlowerCell.swift */,
 				3959F4CA28CB6AD000985023 /* FlowerInfoCell.swift */,
 				3959F4CC28CB6DE700985023 /* PickerCell.swift */,
+				3959F4DB28D9E68600985023 /* FlowerInfoCVCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -267,6 +278,15 @@
 				3959F4C628CB59C300985023 /* TapCompliteButtonProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3959F4D628D9C5E100985023 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				3959F4D728D9C60600985023 /* FlowerCardHeader.swift */,
+				3959F4D928D9DD3700985023 /* FlowerCardHeaderLayout.swift */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		A83A8B9E9F1AEAEA6D7BC9BA /* Pods */ = {
@@ -533,21 +553,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				3959F4C428CB542E00985023 /* ImagePicker.swift in Sources */,
+				3959F4D828D9C60600985023 /* FlowerCardHeader.swift in Sources */,
 				3959F4D128CCCA3A00985023 /* SaveAlert.swift in Sources */,
 				3959F4CD28CB6DE700985023 /* PickerCell.swift in Sources */,
 				3959F4AD28C77EA300985023 /* TabBar.swift in Sources */,
 				3959F4C728CB59C300985023 /* TapCompliteButtonProtocol.swift in Sources */,
-				3959F4B528C782B300985023 /* FlowerCard.swift in Sources */,
+				3959F4B528C782B300985023 /* FlowerCardOld.swift in Sources */,
 				3959F4CF28CCC90000985023 /* RealmManager.swift in Sources */,
 				3959F4B328C782A900985023 /* AddNewFlower.swift in Sources */,
 				3959F4C228CB534200985023 /* AddNewFlowerCell.swift in Sources */,
 				3959F4BC28C8D84500985023 /* ActiveAlarmsCell.swift in Sources */,
 				3959F4BE28CB491400985023 /* FlowerModel.swift in Sources */,
 				3959F4AF28C7828200985023 /* ListOfFlowers.swift in Sources */,
+				3959F4DC28D9E68600985023 /* FlowerInfoCVCell.swift in Sources */,
 				3959F4C028CB4C7100985023 /* ListOfFlowersCell.swift in Sources */,
 				3959F4CB28CB6AD000985023 /* FlowerInfoCell.swift in Sources */,
 				3959F4B128C7829B00985023 /* ActiveAlarms.swift in Sources */,
+				3959F4D528D9C18200985023 /* FlowerCard.swift in Sources */,
 				3959F4B828C787AA00985023 /* ColorHex.swift in Sources */,
+				3959F4DA28D9DD3700985023 /* FlowerCardHeaderLayout.swift in Sources */,
 				3959F4D328D0B14900985023 /* FrequencyPicker.swift in Sources */,
 				3959F47628C7609500985023 /* AppDelegate.swift in Sources */,
 				3959F47828C7609500985023 /* SceneDelegate.swift in Sources */,

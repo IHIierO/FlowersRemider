@@ -22,6 +22,22 @@ class ListOfFlowers: UIViewController{
     private let listOfFlowersCellId = "listOfFlowersCellId"
     
     override func viewWillAppear(_ animated: Bool) {
+        if #available(iOS 13.0, *) {
+                            let navBarAppearance = UINavigationBarAppearance()
+                            navBarAppearance.configureWithOpaqueBackground()
+                            navBarAppearance.backgroundColor = UIColor(hexString: "#CA587F")
+                    navBarAppearance.largeTitleTextAttributes = [
+                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
+                    ]
+                    navBarAppearance.titleTextAttributes = [
+                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
+                    ]
+                    navigationController?.navigationBar.standardAppearance = navBarAppearance
+                    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+                    navigationController?.navigationBar.tintColor = UIColor(hexString: "#ECFBDE")
+                        } else {
+                            navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ECFBDE")
+                        }
         tableView.reloadData()
     }
     
@@ -142,8 +158,12 @@ extension ListOfFlowers: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let flowerCard = FlowerCard()
+//        let flowerCard = FlowerCardOld()
+//        flowerCard.flowerModel = flowerModel[indexPath.row]
+        
+        let flowerCard = FlowerCard(collectionViewLayout: FlowerCardHeaderLayout())
         flowerCard.flowerModel = flowerModel[indexPath.row]
+        
         navigationController?.pushViewController(flowerCard, animated: true)
     }
 }
