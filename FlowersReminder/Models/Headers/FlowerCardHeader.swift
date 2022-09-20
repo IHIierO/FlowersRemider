@@ -38,6 +38,7 @@ class FlowerCardHeader: UICollectionReusableView {
         flowerName.text = "Гербера"
         flowerName.adjustsFontSizeToFitWidth = true
         flowerName.font = UIFont.systemFont(ofSize: 30, weight: .medium)
+        flowerName.textColor = UIColor(hexString: "#393C39")
         
         flowerName.translatesAutoresizingMaskIntoConstraints = false
         return flowerName
@@ -48,6 +49,7 @@ class FlowerCardHeader: UICollectionReusableView {
         dateWatering.text = "09.09.2022"
         dateWatering.adjustsFontSizeToFitWidth = true
         dateWatering.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        dateWatering.textColor = UIColor(hexString: "#393C39").withAlphaComponent(0.8)
         dateWatering.translatesAutoresizingMaskIntoConstraints = false
         return dateWatering
     }()

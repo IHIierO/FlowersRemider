@@ -31,9 +31,7 @@ class FlowerCard: UICollectionViewController{
             "\(flowerModel.watering)",
             "\(flowerModel.fertilization)",
             "\(flowerModel.toxicityForAnimals)",
-            "\(flowerModel.temperature)",
-            "\(flowerModel.sun)",
-            "\(flowerModel.watering)",
+            
         ]
     }
     
@@ -41,6 +39,7 @@ class FlowerCard: UICollectionViewController{
     
     private func collectionViewConfig(){
         
+        navigationController?.tabBarController?.tabBar.backgroundColor = UIColor(hexString: "#CA587F")
         if #available(iOS 13.0, *) {
                             let navBarAppearance = UINavigationBarAppearance()
                             navBarAppearance.configureWithOpaqueBackground()
@@ -59,12 +58,13 @@ class FlowerCard: UICollectionViewController{
                         }
         
         collectionView.contentInsetAdjustmentBehavior = .never
+        collectionView.backgroundColor = .white
         
         collectionView.register(FlowerInfoCVCell.self, forCellWithReuseIdentifier: flowerInfoCellID)
         collectionView.register(FlowerCardHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: flowerCardHeaderID)
         
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout{
-            layout.sectionInset = .init(top: padding, left: padding, bottom: 100, right: padding)
+            layout.sectionInset = .init(top: padding, left: 0, bottom: 100, right: padding)
         }
         
         
@@ -92,7 +92,7 @@ class FlowerCard: UICollectionViewController{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: view.frame.width, height: 340)
+        return .init(width: view.frame.width, height: view.frame.height / 2)
     }
 }
 
