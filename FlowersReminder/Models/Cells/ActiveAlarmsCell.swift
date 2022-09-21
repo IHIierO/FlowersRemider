@@ -60,7 +60,7 @@ class ActiveAlarmsCell: UITableViewCell {
         return compliteButton
     }()
     
-    weak var activeAlarmsCellDelegate: TapCompliteButtonProtocol?
+    weak var activeAlarmsCellDelegate: TapButtonProtocol?
     var indexPath: IndexPath?
     
 
@@ -79,7 +79,7 @@ class ActiveAlarmsCell: UITableViewCell {
     
     @objc func compliteButtonTapped(){
         guard let indexPath = indexPath else {return}
-        activeAlarmsCellDelegate?.compliteButtonTapped(indexPath: indexPath)
+        activeAlarmsCellDelegate?.buttonTapped(indexPath: indexPath)
     }
     
     func cellConfig(indexPath: IndexPath, model: FlowerModel,date: Date){
@@ -88,15 +88,15 @@ class ActiveAlarmsCell: UITableViewCell {
         flowerName.textColor = UIColor(hexString: "\(model.compliteColor)")
         flowerStatus.textColor = UIColor(hexString: "\(model.compliteColor)")
         
-       if Calendar.current.isDate(model.dateWatering, equalTo: date, toGranularity: .day){
-                flowerStatus.text = "Cегодня только полить"
-            }
-            if Calendar.current.isDate(model.dateFertilizer, equalTo: date, toGranularity: .day) {
-                flowerStatus.text = "Cегодня только удобрить"
-            }
-            if Calendar.current.isDate(model.dateWatering, equalTo: model.dateFertilizer, toGranularity: .day){
-                flowerStatus.text = "Cегодня полить и удобрить"
-            }
+        if Calendar.current.isDate(model.dateWatering, equalTo: date, toGranularity: .day){
+            flowerStatus.text = "Cегодня только полить"
+        }
+        if Calendar.current.isDate(model.dateFertilizer, equalTo: date, toGranularity: .day) {
+            flowerStatus.text = "Cегодня только удобрить"
+        }
+        if Calendar.current.isDate(model.dateWatering, equalTo: model.dateFertilizer, toGranularity: .day){
+            flowerStatus.text = "Cегодня полить и удобрить"
+        }
         
     }
     

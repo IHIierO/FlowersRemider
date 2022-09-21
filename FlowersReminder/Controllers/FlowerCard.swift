@@ -15,11 +15,14 @@ class FlowerCard: UICollectionViewController{
     
     private let flowerInfoCellID = "flowerInfoCellID"
     private let flowerCardHeaderID = "flowerCardHeaderID"
+    private let flowerCardButtonsCell = "flowerCardButtonsCell"
     
     private var infoData: [String] = []
     private var pickerData: [String] = []
     
     private let padding: CGFloat = 16
+    
+    private var changeActivate = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,8 +94,10 @@ class FlowerCard: UICollectionViewController{
         
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.backgroundColor = .white
+        collectionView.allowsSelection = false
         
         collectionView.register(FlowerInfoCVCell.self, forCellWithReuseIdentifier: flowerInfoCellID)
+        collectionView.register(FlowerCardButtonsCell.self, forCellWithReuseIdentifier: flowerCardButtonsCell)
         collectionView.register(FlowerCardHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: flowerCardHeaderID)
         
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout{
@@ -101,7 +106,7 @@ class FlowerCard: UICollectionViewController{
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return infoData.count
+        return infoData.count + 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -132,6 +137,24 @@ class FlowerCard: UICollectionViewController{
             flowerInfoCVCell.cellConfig(indexPath: indexPath)
             flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
             return flowerInfoCVCell
+        case [0,6]:
+            let flowerCardButtonsCell = collectionView.dequeueReusableCell(withReuseIdentifier: flowerCardButtonsCell, for: indexPath) as! FlowerCardButtonsCell
+            flowerCardButtonsCell.cellConfig()
+            
+            flowerCardButtonsCell.buttonTapAction = { [self]
+                ()  in
+                changeActivate = !changeActivate
+                collectionView.reloadData()
+                collectionView.allowsSelection = changeActivate
+                flowerCardButtonsCell.changeActivate = changeActivate
+            }
+            flowerCardButtonsCell.deleteButtonTapAction = { [self]
+                () in
+                
+                deleteAlert(model: flowerModel)
+            }
+            
+            return flowerCardButtonsCell
        
         default:
             flowerInfoCVCell.cellConfig(indexPath: indexPath)
@@ -229,3 +252,5 @@ extension FlowerCard: UICollectionViewDelegateFlowLayout{
         }
     }
 }
+
+

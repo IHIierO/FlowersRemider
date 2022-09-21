@@ -141,7 +141,7 @@ class ActiveAlarms: UIViewController{
     }
 }
 
-extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDelegate, UITableViewDataSource, TapCompliteButtonProtocol {
+extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDelegate, UITableViewDataSource, TapButtonProtocol {
     
     //MARK: UITableViewDelegate, UITableViewDataSource
     
@@ -166,7 +166,7 @@ extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDel
     
     //MARK: compliteButtonTapped
     
-    func compliteButtonTapped(indexPath: IndexPath) {
+    func buttonTapped(indexPath: IndexPath) {
         if flowerModel[indexPath.row].compliteColor == "#000000"{
             RealmManager.shared.updateCompliteColor(model: flowerModel[indexPath.row], hex: "#D3D3D3")
         }else if flowerModel[indexPath.row].compliteColor == "#D3D3D3"{
