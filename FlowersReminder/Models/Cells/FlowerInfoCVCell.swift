@@ -45,14 +45,13 @@ class FlowerInfoCVCell: UICollectionViewCell {
         return iconImage
     }()
     
-    private var iconImageData = ["thermometer.sun",
-                                 "sun.max",
-                                 "drop.fill",
-                                 "leaf.arrow.triangle.circlepath",
-                                 "pawprint.circle.fill",
-                                 "thermometer.sun",
-                                 "sun.max",
-                                 "drop.fill",
+    private var iconImageData = [
+        "calendar.circle",
+        "thermometer.sun",
+        "sun.max",
+        "humidifier.and.droplets",
+        "leaf.arrow.triangle.circlepath",
+        "pawprint.circle.fill",
     ]
     
     let flowerInfo: UILabel = {
@@ -65,14 +64,12 @@ class FlowerInfoCVCell: UICollectionViewCell {
     }()
     
     private var flowerInfoTextData = [
-                                            "Тепло / Холод",
-                                            "Солнце / Тень",
-                                            "Сухость / Влажность",
-                                            "Удобрение раз в месяц / 2 месяца",
-                                            "Токсичен / Не токсичен для животных",
-                                            "Тепло / Холод",
-                                            "Солнце / Тень",
-                                            "Сухость / Влажность",
+        "Выбери дату",
+        "Тепло / Холод",
+        "Солнце / Тень",
+        "Выбери переодичность полива",
+        "Выбери переодичность удобрения",
+        "Токсичен / Не токсичен для животных",
     ]
     
     override init(frame: CGRect) {

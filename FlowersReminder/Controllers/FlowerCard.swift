@@ -17,6 +17,7 @@ class FlowerCard: UICollectionViewController{
     private let flowerCardHeaderID = "flowerCardHeaderID"
     
     private var infoData: [String] = []
+    private var pickerData: [String] = []
     
     private let padding: CGFloat = 16
     
@@ -24,22 +25,53 @@ class FlowerCard: UICollectionViewController{
         super.viewDidLoad()
         
         collectionViewConfig()
-        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM yyyy"
         infoData = [
+            "\(dateFormatter.string(from: flowerModel.dateWatering))",
             "\(flowerModel.temperature)",
             "\(flowerModel.sun)",
-            "\(flowerModel.watering)",
-            "\(flowerModel.fertilization)",
+            "\(irrigationFrequencyLabel())",
+            "\(fertilizerFrequencyLabel())",
             "\(flowerModel.toxicityForAnimals)",
             
         ]
+        
+    }
+    
+    private func fertilizerFrequencyLabel() -> String{
+        
+        if flowerModel.fertilizerFrequency == 30{
+            return "Раз в месяц"
+        }else if flowerModel.fertilizerFrequency == 61{
+            return "Раз в 2 месяца"
+        }
+        return "Выбери переодичность удобрения"
+    }
+    
+    private func irrigationFrequencyLabel() -> String{
+        
+        if flowerModel.irrigationFrequency == 3{
+            return "Раз в 3 дня"
+        }else if flowerModel.irrigationFrequency == 5{
+            return "Раз в 5 дней"
+        }else if flowerModel.irrigationFrequency == 7{
+            return "Раз в неделю"
+        }else if flowerModel.irrigationFrequency == 14{
+            return "Раз в 2 недели"
+        }else if flowerModel.irrigationFrequency == 30{
+            return "Раз в месяц"
+        }else if flowerModel.irrigationFrequency == 61{
+            return "Раз в два месяца"
+        }
+        return "Выбери переодичность полива"
     }
     
     //MARK: collectionViewConfig
     
     private func collectionViewConfig(){
         
-        navigationController?.tabBarController?.tabBar.backgroundColor = UIColor(hexString: "#CA587F")
+        navigationController?.tabBarController?.tabBar.isHidden = true
         if #available(iOS 13.0, *) {
                             let navBarAppearance = UINavigationBarAppearance()
                             navBarAppearance.configureWithOpaqueBackground()
@@ -66,8 +98,6 @@ class FlowerCard: UICollectionViewController{
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout{
             layout.sectionInset = .init(top: padding, left: 0, bottom: 100, right: padding)
         }
-        
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -75,10 +105,39 @@ class FlowerCard: UICollectionViewController{
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: flowerInfoCellID, for: indexPath) as! FlowerInfoCVCell
-        cell.cellConfig(indexPath: indexPath)
-        cell.flowerInfo.text = infoData[indexPath.row]
-        return cell
+        let flowerInfoCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: flowerInfoCellID, for: indexPath) as! FlowerInfoCVCell
+        
+        switch indexPath {
+        case [0,0]:
+            flowerInfoCVCell.cellConfig(indexPath: indexPath)
+            flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
+            return flowerInfoCVCell
+        case [0,1]:
+            flowerInfoCVCell.cellConfig(indexPath: indexPath)
+            flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
+            return flowerInfoCVCell
+        case [0,2]:
+            flowerInfoCVCell.cellConfig(indexPath: indexPath)
+            flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
+            return flowerInfoCVCell
+        case [0,3]:
+            flowerInfoCVCell.cellConfig(indexPath: indexPath)
+            flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
+            return flowerInfoCVCell
+        case [0,4]:
+            flowerInfoCVCell.cellConfig(indexPath: indexPath)
+            flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
+            return flowerInfoCVCell
+        case [0,5]:
+            flowerInfoCVCell.cellConfig(indexPath: indexPath)
+            flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
+            return flowerInfoCVCell
+       
+        default:
+            flowerInfoCVCell.cellConfig(indexPath: indexPath)
+            return flowerInfoCVCell
+        }
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -103,5 +162,70 @@ extension FlowerCard: UICollectionViewDelegateFlowLayout{
         return .init(width: view.frame.width - 2 * padding, height: 80)
     }
     
-    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let flowerInfoCVCell = collectionView.cellForItem(at: indexPath) as! FlowerInfoCVCell
+        switch indexPath{
+        case [0,0]:
+            alertDatePicker(label: flowerInfoCVCell.flowerInfo) { [self] (date) in
+                try! localRealm.write{
+                    flowerModel.dateWatering = date
+                    flowerModel.dateFertilizer = date
+                    localRealm.add(flowerModel)
+                }
+            }
+        case [0,1]:
+            temperaturePicker(label: flowerInfoCVCell.flowerInfo) { [self] String in
+                try! localRealm.write{
+                    flowerModel.temperature = String
+                    localRealm.add(flowerModel)
+                }
+            }
+        case [0,2]:
+            sunPicker(label: flowerInfoCVCell.flowerInfo) { [self] String in
+                try! localRealm.write{
+                    flowerModel.sun = String
+                    localRealm.add(flowerModel)
+                }
+            }
+        case [0,3]:
+            alertIrrigationFrequencyPicker(label: flowerInfoCVCell.flowerInfo) { [self]  String in
+                try! localRealm.write{
+                    if String == "Раз в 3 дня"{
+                        flowerModel.irrigationFrequency = 3
+                    }else if String ==  "Раз в 5 дней"{
+                        flowerModel.irrigationFrequency = 5
+                    }else if String ==  "Раз в неделю"{
+                        flowerModel.irrigationFrequency = 7
+                    }else if String ==  "Раз в 2 недели"{
+                        flowerModel.irrigationFrequency = 14
+                    }else if String ==  "Раз в месяц"{
+                        flowerModel.irrigationFrequency = 30
+                    }else if String ==  "Раз в два месяца"{
+                        flowerModel.irrigationFrequency = 61
+                    }
+                    localRealm.add(flowerModel)
+                }
+            }
+        case [0,4]:
+            alertFertilizerFrequencyPicker(label: flowerInfoCVCell.flowerInfo) { [self] String in
+                try! localRealm.write{
+                    if String == "Раз в месяц"{
+                        flowerModel.fertilizerFrequency = 30
+                    }else if String ==  "Раз в 2 месяца"{
+                        flowerModel.fertilizerFrequency = 61
+                    }
+                    localRealm.add(flowerModel)
+                }
+            }
+        case [0,5]:
+            toxicityForAnimalsPicker(label: flowerInfoCVCell.flowerInfo) { [self] String in
+                try! localRealm.write{
+                    flowerModel.toxicityForAnimals = String
+                    localRealm.add(flowerModel)
+                }
+            }
+        default:
+            print("Error")
+        }
+    }
 }

@@ -33,7 +33,7 @@
 		3959F4CD28CB6DE700985023 /* PickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4CC28CB6DE700985023 /* PickerCell.swift */; };
 		3959F4CF28CCC90000985023 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4CE28CCC90000985023 /* RealmManager.swift */; };
 		3959F4D128CCCA3A00985023 /* SaveAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4D028CCCA3A00985023 /* SaveAlert.swift */; };
-		3959F4D328D0B14900985023 /* FrequencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4D228D0B14900985023 /* FrequencyPicker.swift */; };
+		3959F4D328D0B14900985023 /* FlowerInfoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4D228D0B14900985023 /* FlowerInfoPicker.swift */; };
 		3959F4D528D9C18200985023 /* FlowerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4D428D9C18200985023 /* FlowerCard.swift */; };
 		3959F4D828D9C60600985023 /* FlowerCardHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4D728D9C60600985023 /* FlowerCardHeader.swift */; };
 		3959F4DA28D9DD3700985023 /* FlowerCardHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4D928D9DD3700985023 /* FlowerCardHeaderLayout.swift */; };
@@ -94,7 +94,7 @@
 		3959F4CC28CB6DE700985023 /* PickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCell.swift; sourceTree = "<group>"; };
 		3959F4CE28CCC90000985023 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		3959F4D028CCCA3A00985023 /* SaveAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAlert.swift; sourceTree = "<group>"; };
-		3959F4D228D0B14900985023 /* FrequencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyPicker.swift; sourceTree = "<group>"; };
+		3959F4D228D0B14900985023 /* FlowerInfoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerInfoPicker.swift; sourceTree = "<group>"; };
 		3959F4D428D9C18200985023 /* FlowerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCard.swift; sourceTree = "<group>"; };
 		3959F4D728D9C60600985023 /* FlowerCardHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCardHeader.swift; sourceTree = "<group>"; };
 		3959F4D928D9DD3700985023 /* FlowerCardHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCardHeaderLayout.swift; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 			children = (
 				3959F4C328CB542E00985023 /* ImagePicker.swift */,
 				3959F4C828CB609C00985023 /* DatePicker.swift */,
-				3959F4D228D0B14900985023 /* FrequencyPicker.swift */,
+				3959F4D228D0B14900985023 /* FlowerInfoPicker.swift */,
 			);
 			path = Picker;
 			sourceTree = "<group>";
@@ -572,7 +572,7 @@
 				3959F4D528D9C18200985023 /* FlowerCard.swift in Sources */,
 				3959F4B828C787AA00985023 /* ColorHex.swift in Sources */,
 				3959F4DA28D9DD3700985023 /* FlowerCardHeaderLayout.swift in Sources */,
-				3959F4D328D0B14900985023 /* FrequencyPicker.swift in Sources */,
+				3959F4D328D0B14900985023 /* FlowerInfoPicker.swift in Sources */,
 				3959F47628C7609500985023 /* AppDelegate.swift in Sources */,
 				3959F47828C7609500985023 /* SceneDelegate.swift in Sources */,
 				3959F4C928CB609C00985023 /* DatePicker.swift in Sources */,
@@ -684,6 +684,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to the photo library.";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -739,6 +741,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to the photo library.";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
