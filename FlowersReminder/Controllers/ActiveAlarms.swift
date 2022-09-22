@@ -56,24 +56,24 @@ class ActiveAlarms: UIViewController{
     private func viewControllerConfig(){
         title = "Будильники"
         view.backgroundColor = UIColor(hexString: "#FBDDE7")
-        navigationController?.tabBarController?.tabBar.backgroundColor = UIColor(hexString: "#CA587F")
+//        navigationController?.tabBarController?.tabBar.backgroundColor = UIColor(hexString: "#CA587F")
         
-        if #available(iOS 13.0, *) {
-                            let navBarAppearance = UINavigationBarAppearance()
-                            navBarAppearance.configureWithOpaqueBackground()
-                            navBarAppearance.backgroundColor = UIColor(hexString: "#CA587F")
-                    navBarAppearance.largeTitleTextAttributes = [
-                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
-                    ]
-                    navBarAppearance.titleTextAttributes = [
-                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
-                    ]
-                    navigationController?.navigationBar.standardAppearance = navBarAppearance
-                    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-                    navigationController?.navigationBar.tintColor = UIColor(hexString: "#ECFBDE")
-                        } else {
-                            navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ECFBDE")
-                        }
+//        if #available(iOS 13.0, *) {
+//                            let navBarAppearance = UINavigationBarAppearance()
+//                            navBarAppearance.configureWithOpaqueBackground()
+//                            navBarAppearance.backgroundColor = UIColor(hexString: "#CA587F")
+//                    navBarAppearance.largeTitleTextAttributes = [
+//                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
+//                    ]
+//                    navBarAppearance.titleTextAttributes = [
+//                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
+//                    ]
+//                    navigationController?.navigationBar.standardAppearance = navBarAppearance
+//                    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+//                    navigationController?.navigationBar.tintColor = UIColor(hexString: "#ECFBDE")
+//                        } else {
+//                            navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ECFBDE")
+//                        }
         
         setConstraints()
         

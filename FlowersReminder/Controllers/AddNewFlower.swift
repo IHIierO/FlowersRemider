@@ -65,24 +65,24 @@ class AddNewFlower: UIViewController {
         dataStrings = ["","","","",""]
         
         view.backgroundColor = UIColor(hexString: "#FBDDE7")
-        title = "Добавить Цветок"
+//        title = "Добавить Цветок"
         
-        if #available(iOS 13.0, *) {
-                            let navBarAppearance = UINavigationBarAppearance()
-                            navBarAppearance.configureWithOpaqueBackground()
-                            navBarAppearance.backgroundColor = UIColor(hexString: "#CA587F")
-                    navBarAppearance.largeTitleTextAttributes = [
-                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
-                    ]
-                    navBarAppearance.titleTextAttributes = [
-                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
-                    ]
-                    navigationController?.navigationBar.standardAppearance = navBarAppearance
-                    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-                    navigationController?.navigationBar.tintColor = UIColor(hexString: "#ECFBDE")
-                        } else {
-                            navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ECFBDE")
-                        }
+//        if #available(iOS 13.0, *) {
+//                            let navBarAppearance = UINavigationBarAppearance()
+//                            navBarAppearance.configureWithOpaqueBackground()
+//                            navBarAppearance.backgroundColor = UIColor(hexString: "#CA587F")
+//                    navBarAppearance.largeTitleTextAttributes = [
+//                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
+//                    ]
+//                    navBarAppearance.titleTextAttributes = [
+//                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
+//                    ]
+//                    navigationController?.navigationBar.standardAppearance = navBarAppearance
+//                    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+//                    navigationController?.navigationBar.tintColor = UIColor(hexString: "#ECFBDE")
+//                        } else {
+//                            navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ECFBDE")
+//                        }
         
         flowersImage.layer.borderWidth = 1
         flowersImage.layer.cornerRadius = 10

@@ -74,23 +74,26 @@ class FlowerCard: UICollectionViewController{
     
     private func collectionViewConfig(){
         
-        navigationController?.tabBarController?.tabBar.isHidden = true
-        if #available(iOS 13.0, *) {
-                            let navBarAppearance = UINavigationBarAppearance()
-                            navBarAppearance.configureWithOpaqueBackground()
-            navBarAppearance.backgroundColor = UIColor.clear
-                    navBarAppearance.largeTitleTextAttributes = [
-                        NSAttributedString.Key.foregroundColor : UIColor.clear
-                    ]
-                    navBarAppearance.titleTextAttributes = [
-                        NSAttributedString.Key.foregroundColor : UIColor.clear
-                    ]
-                    navigationController?.navigationBar.standardAppearance = navBarAppearance
-                    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-            navigationController?.navigationBar.tintColor = UIColor.black
-                        } else {
-                            navigationController?.navigationBar.barTintColor = UIColor.clear
-                        }
+//        navigationController?.tabBarController?.tabBar.isHidden = true
+        let tabBar = self.tabBarController as! TabBar
+        tabBar.hideTabBar()
+        
+//        if #available(iOS 13.0, *) {
+//                            let navBarAppearance = UINavigationBarAppearance()
+//                            navBarAppearance.configureWithOpaqueBackground()
+//            navBarAppearance.backgroundColor = UIColor.clear
+//                    navBarAppearance.largeTitleTextAttributes = [
+//                        NSAttributedString.Key.foregroundColor : UIColor.clear
+//                    ]
+//                    navBarAppearance.titleTextAttributes = [
+//                        NSAttributedString.Key.foregroundColor : UIColor.clear
+//                    ]
+//                    navigationController?.navigationBar.standardAppearance = navBarAppearance
+//                    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+//            navigationController?.navigationBar.tintColor = UIColor.black
+//                        } else {
+//                            navigationController?.navigationBar.barTintColor = UIColor.clear
+//                        }
         
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.backgroundColor = .white

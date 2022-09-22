@@ -22,22 +22,25 @@ class ListOfFlowers: UIViewController{
     private let listOfFlowersCellId = "listOfFlowersCellId"
     
     override func viewWillAppear(_ animated: Bool) {
-        if #available(iOS 13.0, *) {
-                            let navBarAppearance = UINavigationBarAppearance()
-                            navBarAppearance.configureWithOpaqueBackground()
-                            navBarAppearance.backgroundColor = UIColor(hexString: "#CA587F")
-                    navBarAppearance.largeTitleTextAttributes = [
-                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
-                    ]
-                    navBarAppearance.titleTextAttributes = [
-                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
-                    ]
-                    navigationController?.navigationBar.standardAppearance = navBarAppearance
-                    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-                    navigationController?.navigationBar.tintColor = UIColor(hexString: "#ECFBDE")
-                        } else {
-                            navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ECFBDE")
-                        }
+//        if #available(iOS 13.0, *) {
+//                            let navBarAppearance = UINavigationBarAppearance()
+//                            navBarAppearance.configureWithOpaqueBackground()
+//                            navBarAppearance.backgroundColor = UIColor(hexString: "#CA587F")
+//                    navBarAppearance.largeTitleTextAttributes = [
+//                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
+//                    ]
+//                    navBarAppearance.titleTextAttributes = [
+//                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
+//                    ]
+//                    navigationController?.navigationBar.standardAppearance = navBarAppearance
+//                    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+//                    navigationController?.navigationBar.tintColor = UIColor(hexString: "#ECFBDE")
+//                        } else {
+//                            navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ECFBDE")
+//                        }
+        
+        let tabBar = self.tabBarController as! TabBar
+        tabBar.showTabBar()
         tableView.reloadData()
     }
     
@@ -56,24 +59,24 @@ class ListOfFlowers: UIViewController{
         
         title = "Мои Цветы"
         view.backgroundColor = UIColor(hexString: "#FBDDE7")
-        navigationController?.tabBarController?.tabBar.backgroundColor = UIColor(hexString: "#CA587F")
+//        navigationController?.tabBarController?.tabBar.backgroundColor = UIColor(hexString: "#CA587F")
         
-        if #available(iOS 13.0, *) {
-                            let navBarAppearance = UINavigationBarAppearance()
-                            navBarAppearance.configureWithOpaqueBackground()
-                            navBarAppearance.backgroundColor = UIColor(hexString: "#CA587F")
-                    navBarAppearance.largeTitleTextAttributes = [
-                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
-                    ]
-                    navBarAppearance.titleTextAttributes = [
-                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
-                    ]
-                    navigationController?.navigationBar.standardAppearance = navBarAppearance
-                    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-                    navigationController?.navigationBar.tintColor = UIColor(hexString: "#ECFBDE")
-                        } else {
-                            navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ECFBDE")
-                        }
+//        if #available(iOS 13.0, *) {
+//                            let navBarAppearance = UINavigationBarAppearance()
+//                            navBarAppearance.configureWithOpaqueBackground()
+//                            navBarAppearance.backgroundColor = UIColor(hexString: "#CA587F")
+//                    navBarAppearance.largeTitleTextAttributes = [
+//                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
+//                    ]
+//                    navBarAppearance.titleTextAttributes = [
+//                        NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FBDDE7")
+//                    ]
+//                    navigationController?.navigationBar.standardAppearance = navBarAppearance
+//                    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+//                    navigationController?.navigationBar.tintColor = UIColor(hexString: "#ECFBDE")
+//                        } else {
+//                            navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ECFBDE")
+//                        }
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -82,7 +85,7 @@ class ListOfFlowers: UIViewController{
         tableView.register(ListOfFlowersCell.self, forCellReuseIdentifier: listOfFlowersCellId)
         
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushToAddNewFlower))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushToAddNewFlower))
         
     }
     

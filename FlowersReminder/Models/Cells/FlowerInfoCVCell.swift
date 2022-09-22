@@ -47,11 +47,11 @@ class FlowerInfoCVCell: UICollectionViewCell {
     
     private var iconImageData = [
         "calendar.circle",
-        "thermometer.sun",
-        "sun.max",
-        "humidifier.and.droplets",
+        "thermometer.sun.circle",
+        "sun.max.circle",
+        "drop.circle",
         "leaf.arrow.triangle.circlepath",
-        "pawprint.circle.fill",
+        "pawprint.circle",
     ]
     
     let flowerInfo: UILabel = {
