@@ -146,8 +146,8 @@ class FlowerCard: UICollectionViewController{
             
             flowerCardButtonsCell.buttonTapAction = { [self]
                 ()  in
-                changeActivate = !changeActivate
                 collectionView.reloadData()
+                changeActivate = !changeActivate
                 collectionView.allowsSelection = changeActivate
                 flowerCardButtonsCell.changeActivate = changeActivate
             }
@@ -156,6 +156,7 @@ class FlowerCard: UICollectionViewController{
                 
                 deleteAlert(model: flowerModel)
             }
+            
             
             return flowerCardButtonsCell
        

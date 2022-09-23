@@ -146,7 +146,8 @@ class AddNewFlower: UIViewController {
 
         flowerModel = FlowerModel()
         
-        saveAlert()
+        saveAlert(tableView: tableView, flowerName: flowerName, flowerImage: flowersImage)
+        
     }
     
     @objc func dismissKeyboard() {

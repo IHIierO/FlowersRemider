@@ -10,12 +10,21 @@ import RealmSwift
 
 extension UIViewController{
     
-    func saveAlert(){
+    func saveAlert(tableView: UITableView, flowerName: UITextView, flowerImage: UIImageView){
         
         let alert = UIAlertController(title: "Сохранено", message: nil, preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "OK", style: .default) {(action) in
-            self.navigationController?.popViewController(animated: true)
+            flowerName.text = "Название Цветка"
+            flowerImage.image = UIImage(named: "defaultFlower")
+            
+            let indexPaths   = [[0,0],[0,1],[0,2],[0,3],[0,4]]
+            
+            for indexPath in indexPaths {
+                let cell = tableView.cellForRow(at: IndexPath(indexes: indexPath)) as! AddNewFlowerCell
+                cell.flowerInfo.text?.removeAll()
+            }
+            
         }
         
         alert.addAction(ok)

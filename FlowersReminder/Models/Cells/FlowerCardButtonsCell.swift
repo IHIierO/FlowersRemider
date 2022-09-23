@@ -157,7 +157,7 @@ class FlowerCardButtonsCell: UICollectionViewCell {
         self.addSubview(shadowBackgroundForCangeButton)
         NSLayoutConstraint.activate([
             shadowBackgroundForCangeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            shadowBackgroundForCangeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            shadowBackgroundForCangeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 26),
             shadowBackgroundForCangeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 26),
             shadowBackgroundForCangeButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5)
         ])
@@ -165,7 +165,7 @@ class FlowerCardButtonsCell: UICollectionViewCell {
         self.addSubview(changeButton)
         NSLayoutConstraint.activate([
             changeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            changeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            changeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 26),
             changeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 26),
             changeButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5)
         ])

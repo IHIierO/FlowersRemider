@@ -63,7 +63,7 @@ class TabBar: UITabBarController{
     }
     
     private func createPath() -> CGPath {
-
+        
         let cornerRad: CGFloat = 15.0
         let height: CGFloat = 47.0
         let centerWidth = self.tabBar.frame.width / 2
@@ -98,7 +98,7 @@ class TabBar: UITabBarController{
         
         // botRightArc
         path.addArc(withCenter: botRightArc, radius: cornerRad, startAngle: 0.0, endAngle: .pi * 0.5, clockwise: true)
-       
+        
         // botLeftArc
         path.addArc(withCenter: botLeftArc, radius: cornerRad, startAngle: .pi * 0.5, endAngle: .pi * 1.0, clockwise: true)
         
@@ -124,16 +124,16 @@ class TabBar: UITabBarController{
         
         view.layoutIfNeeded()
     }
-
-        @objc private func addNewFlowerButtonAction(sender: UIButton) {
-            selectedIndex = 1
-        }
+    
+    @objc private func addNewFlowerButtonAction(sender: UIButton) {
+        selectedIndex = 1
+    }
     
     func hideTabBar() {
         self.tabBar.isHidden = true
         self.addNewFlowerButton.isHidden = true
     }
-
+    
     func showTabBar() {
         self.tabBar.isHidden = false
         self.addNewFlowerButton.isHidden = false
