@@ -1,5 +1,5 @@
 //
-//  ListOfFlowers.swift
+//  ListOfFlowersOld.swift
 //  FlowersReminder
 //
 //  Created by Artem Vorobev on 06.09.2022.
@@ -8,23 +8,18 @@
 import UIKit
 import RealmSwift
 
-class ListOfFlowers: UIViewController{
+class ListOfFlowersOld: UIViewController{
     
     let localRealm = try! Realm()
     var flowerModel: Results<FlowerModel>!
     
-    
-    fileprivate let collectionView: UICollectionView = {
-       let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.sectionInset = .init(top: 0, left: 30, bottom: 0, right: 30)
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(ListOfFlowerCVCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
+    let tableView: UITableView = {
+       let tableview = UITableView()
+        tableview.translatesAutoresizingMaskIntoConstraints = false
+        return tableview
     }()
     
+    private let listOfFlowersCellId = "listOfFlowersCellId"
     
     override func viewWillAppear(_ animated: Bool) {
 //        if #available(iOS 13.0, *) {
@@ -46,13 +41,13 @@ class ListOfFlowers: UIViewController{
         
         let tabBar = self.tabBarController as! TabBar
         tabBar.showTabBar()
-        collectionView.reloadData()
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       collectionView.reloadData()
+        tableView.reloadData()
         viewControllerConfig()
         setConstraints()
         flowerModel = localRealm.objects(FlowerModel.self)
@@ -82,9 +77,14 @@ class ListOfFlowers: UIViewController{
 //                        } else {
 //                            navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ECFBDE")
 //                        }
-       
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = UIColor(hexString: "#FBDDE7")
+        tableView.separatorStyle = .none
+        tableView.register(ListOfFlowersCell.self, forCellReuseIdentifier: listOfFlowersCellId)
+        
+        
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushToAddNewFlower))
         
     }
@@ -97,12 +97,12 @@ class ListOfFlowers: UIViewController{
     //MARK: setConstraints
     
     private  func setConstraints(){
-        view.addSubview(collectionView)
+        view.addSubview(tableView)
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
     }
     
@@ -143,34 +143,30 @@ class ListOfFlowers: UIViewController{
     }
 }
 
-
-//MARK: UICollectionViewFlowLayout, UICollectionViewDataSource
-extension ListOfFlowers: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.width/2)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//MARK: UITableViewDelegate, UITableViewDataSource
+extension ListOfFlowersOld: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return flowerModel.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ListOfFlowerCVCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: listOfFlowersCellId, for: indexPath) as! ListOfFlowersCell
         cell.cellConfig(indexPath: indexPath, model: flowerModel[indexPath.row])
+        
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let flowerCard = FlowerCardOld()
+//        flowerCard.flowerModel = flowerModel[indexPath.row]
+        
         let flowerCard = FlowerCard(collectionViewLayout: FlowerCardHeaderLayout())
         flowerCard.flowerModel = flowerModel[indexPath.row]
         
         navigationController?.pushViewController(flowerCard, animated: true)
     }
-    
-    
 }
