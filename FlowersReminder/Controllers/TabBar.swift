@@ -64,7 +64,7 @@ class TabBar: UITabBarController{
     
     private func createPath() -> CGPath {
         
-        let cornerRad: CGFloat = 15.0
+        let cornerRad: CGFloat = 30.0
         let height: CGFloat = 47.0
         let centerWidth = self.tabBar.frame.width / 2
         let topLeftArc: CGPoint = CGPoint(x: self.tabBar.bounds.minX + cornerRad + 10, y: self.tabBar.bounds.minY + cornerRad)

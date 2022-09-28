@@ -87,6 +87,7 @@ class ActiveAlarms: UIViewController{
         tableView.delegate = self
         tableView.backgroundColor = UIColor(hexString: "#FBDDE7")
         tableView.register(ActiveAlarmsCell.self, forCellReuseIdentifier: activeAlarmsCellId)
+        tableView.separatorStyle = .none
         
     }
     
@@ -115,6 +116,7 @@ class ActiveAlarms: UIViewController{
         
         if !flowerModel.isEmpty {
             notificationOnDay()
+           
         }
         
         tableView.reloadData()
@@ -131,7 +133,7 @@ class ActiveAlarms: UIViewController{
         
         var dateComponents = DateComponents()
         dateComponents.hour = 15
-        dateComponents.minute = 50
+        dateComponents.minute = 56
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         let request = UNNotificationRequest.init(identifier: "notificationOnDay", content: content, trigger: trigger)

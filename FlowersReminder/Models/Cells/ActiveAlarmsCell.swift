@@ -9,20 +9,36 @@ import UIKit
 
 class ActiveAlarmsCell: UITableViewCell {
     
+    let shadowBackground: UIView = {
+       let shadowBackground = UIView()
+        shadowBackground.backgroundColor = .white
+        shadowBackground.layer.cornerRadius = 35
+        shadowBackground.layer.shadowColor = UIColor(hexString: "#6A6F6A").cgColor
+        shadowBackground.layer.shadowOpacity = 0.8
+        shadowBackground.layer.shadowOffset = .zero
+        shadowBackground.layer.shadowRadius = 5
+        shadowBackground.clipsToBounds = false
+        
+        shadowBackground.translatesAutoresizingMaskIntoConstraints  = false
+        return shadowBackground
+    }()
+    
     let hStack: UIStackView = {
        let hStack = UIStackView()
         hStack.axis = .horizontal
-        hStack.distribution = .fillProportionally
-        hStack.backgroundColor = .lightGray
-        hStack.layer.cornerRadius = 10
-        hStack.layer.masksToBounds = true
+        hStack.distribution = .fillEqually
+        hStack.backgroundColor = UIColor(hexString: "#CFD9CE")
+        hStack.layer.cornerRadius = 35
         hStack.translatesAutoresizingMaskIntoConstraints = false
         return hStack
     }()
     
     let flowerImage: UIImageView = {
-       let flowerImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+       let flowerImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
         flowerImage.contentMode = .scaleAspectFill
+        flowerImage.layer.masksToBounds = true
+        flowerImage.layer.cornerRadius = 35
+        flowerImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         
         flowerImage.translatesAutoresizingMaskIntoConstraints = false
         return flowerImage
@@ -32,7 +48,6 @@ class ActiveAlarmsCell: UITableViewCell {
        let vStack = UIStackView()
         vStack.axis = .vertical
         vStack.distribution = .fillEqually
-        vStack.backgroundColor = .lightGray
         vStack.translatesAutoresizingMaskIntoConstraints = false
         return vStack
     }()
@@ -104,20 +119,28 @@ class ActiveAlarmsCell: UITableViewCell {
     
     private func setConstraints(){
         
-        self.contentView.addSubview(compliteButton)
+        self.addSubview(shadowBackground)
         NSLayoutConstraint.activate([
-            compliteButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            compliteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            compliteButton.heightAnchor.constraint(equalToConstant: 40),
-            compliteButton.widthAnchor.constraint(equalToConstant: 40)
+            shadowBackground.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            shadowBackground.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
+            shadowBackground.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            shadowBackground.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
         ])
         
         self.addSubview(hStack)
         NSLayoutConstraint.activate([
-            hStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            hStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
-            hStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            hStack.trailingAnchor.constraint(equalTo: compliteButton.leadingAnchor, constant: -10),
+            hStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            hStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
+            hStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            hStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+        ])
+        
+        self.contentView.addSubview(compliteButton)
+        NSLayoutConstraint.activate([
+            compliteButton.centerYAnchor.constraint(equalTo: hStack.centerYAnchor),
+            compliteButton.trailingAnchor.constraint(equalTo: hStack.trailingAnchor, constant: -20),
+            compliteButton.heightAnchor.constraint(equalToConstant: 40),
+            compliteButton.widthAnchor.constraint(equalToConstant: 40)
         ])
         
         hStack.addSubview(flowerImage)
@@ -125,7 +148,7 @@ class ActiveAlarmsCell: UITableViewCell {
             flowerImage.topAnchor.constraint(equalTo: hStack.topAnchor, constant: 0),
             flowerImage.bottomAnchor.constraint(equalTo: hStack.bottomAnchor, constant: 0),
             flowerImage.leadingAnchor.constraint(equalTo: hStack.leadingAnchor, constant: 0),
-            flowerImage.widthAnchor.constraint(equalToConstant: 80)
+            flowerImage.widthAnchor.constraint(equalToConstant: 70)
         ])
         
         hStack.addSubview(vStack)
@@ -133,7 +156,7 @@ class ActiveAlarmsCell: UITableViewCell {
             vStack.topAnchor.constraint(equalTo: hStack.topAnchor, constant: 0),
             vStack.bottomAnchor.constraint(equalTo: hStack.bottomAnchor, constant: 0),
             vStack.leadingAnchor.constraint(equalTo: flowerImage.trailingAnchor, constant: 0),
-            vStack.trailingAnchor.constraint(equalTo: hStack.trailingAnchor, constant: 0),
+            vStack.trailingAnchor.constraint(equalTo: compliteButton.leadingAnchor, constant: 20),
         ])
         
         vStack.addSubview(flowerName)
@@ -141,15 +164,15 @@ class ActiveAlarmsCell: UITableViewCell {
             flowerName.topAnchor.constraint(equalTo: vStack.topAnchor, constant: 5),
             flowerName.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 10),
             flowerName.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: -5),
-            flowerName.heightAnchor.constraint(equalToConstant: 35),
+            flowerName.heightAnchor.constraint(equalToConstant: 30),
         ])
         
         vStack.addSubview(flowerStatus)
         NSLayoutConstraint.activate([
-            flowerStatus.topAnchor.constraint(equalTo: flowerName.bottomAnchor, constant: 5),
+            flowerStatus.topAnchor.constraint(equalTo: flowerName.bottomAnchor, constant: 0),
             flowerStatus.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 10),
             flowerStatus.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: -5),
-            flowerStatus.bottomAnchor.constraint(equalTo: vStack.bottomAnchor, constant: 0),
+            flowerStatus.bottomAnchor.constraint(equalTo: vStack.bottomAnchor, constant: 5),
         ])
         
     }
