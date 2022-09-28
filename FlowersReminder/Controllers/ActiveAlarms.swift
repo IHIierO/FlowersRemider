@@ -55,7 +55,7 @@ class ActiveAlarms: UIViewController{
     
     private func viewControllerConfig(){
         title = "Будильники"
-        view.backgroundColor = UIColor(hexString: "#FBDDE7")
+        view.backgroundColor = .white // UIColor(hexString: "#FBDDE7")
 //        navigationController?.tabBarController?.tabBar.backgroundColor = UIColor(hexString: "#CA587F")
         
 //        if #available(iOS 13.0, *) {
@@ -81,11 +81,14 @@ class ActiveAlarms: UIViewController{
         calendar.delegate = self
         calendar.scope = .week
         calendar.firstWeekday = 2
+        calendar.appearance.weekdayTextColor = .black
+        calendar.appearance.headerTitleColor = .black
+        calendar.appearance.headerMinimumDissolvedAlpha = 0.0
         openCalendarButton.addTarget(self, action: #selector(openCalendarButtonTapped), for: .touchUpInside)
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = UIColor(hexString: "#FBDDE7")
+        tableView.backgroundColor = .white // UIColor(hexString: "#FBDDE7")
         tableView.register(ActiveAlarmsCell.self, forCellReuseIdentifier: activeAlarmsCellId)
         tableView.separatorStyle = .none
         
@@ -170,8 +173,8 @@ extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDel
     
     func buttonTapped(indexPath: IndexPath) {
         if flowerModel[indexPath.row].compliteColor == "#000000"{
-            RealmManager.shared.updateCompliteColor(model: flowerModel[indexPath.row], hex: "#D3D3D3")
-        }else if flowerModel[indexPath.row].compliteColor == "#D3D3D3"{
+            RealmManager.shared.updateCompliteColor(model: flowerModel[indexPath.row], hex: "#9f9f9f")
+        }else if flowerModel[indexPath.row].compliteColor == "#9f9f9f"{
             RealmManager.shared.updateCompliteColor(model: flowerModel[indexPath.row], hex: "#000000")
         }
         tableView.reloadData()

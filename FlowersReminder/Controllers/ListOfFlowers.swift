@@ -13,7 +13,6 @@ class ListOfFlowers: UIViewController{
     let localRealm = try! Realm()
     var flowerModel: Results<FlowerModel>!
     
-    
     fileprivate let collectionView: UICollectionView = {
        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -25,6 +24,8 @@ class ListOfFlowers: UIViewController{
         return collectionView
     }()
     
+    let searchController = UISearchController(searchResultsController: nil)
+    var search = false
     
     override func viewWillAppear(_ animated: Bool) {
 //        if #available(iOS 13.0, *) {
@@ -63,7 +64,8 @@ class ListOfFlowers: UIViewController{
     private func viewControllerConfig(){
         
         title = "Мои Цветы"
-        view.backgroundColor = UIColor(hexString: "#FBDDE7")
+        view.backgroundColor = .white // UIColor(hexString: "#FBDDE7")
+        
 //        navigationController?.tabBarController?.tabBar.backgroundColor = UIColor(hexString: "#CA587F")
         
 //        if #available(iOS 13.0, *) {
@@ -85,7 +87,11 @@ class ListOfFlowers: UIViewController{
        
         collectionView.delegate = self
         collectionView.dataSource = self
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pushToAddNewFlower))
+
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
         
     }
     
@@ -143,7 +149,6 @@ class ListOfFlowers: UIViewController{
     }
 }
 
-
 //MARK: UICollectionViewFlowLayout, UICollectionViewDataSource
 extension ListOfFlowers: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
@@ -156,21 +161,61 @@ extension ListOfFlowers: UICollectionViewDelegateFlowLayout, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return flowerModel.count
+        
+        if search{
+            let searchText = searchController.searchBar.text!
+            
+            return flowerModel.filter("flowerName CONTAINS[cd] %@", searchText).count
+        }else{
+            return flowerModel.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ListOfFlowerCVCell
-        cell.cellConfig(indexPath: indexPath, model: flowerModel[indexPath.row])
+        
+        if search{
+            let searchText = searchController.searchBar.text!
+            let model = flowerModel.filter("flowerName CONTAINS[cd] %@", searchText)[indexPath.row]
+            cell.cellConfig(indexPath: indexPath, model: model)
+        }else{
+            cell.cellConfig(indexPath: indexPath, model: flowerModel[indexPath.row])
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let flowerCard = FlowerCard(collectionViewLayout: FlowerCardHeaderLayout())
-        flowerCard.flowerModel = flowerModel[indexPath.row]
         
+        if search{
+            let searchText = searchController.searchBar.text!
+            let searchFlower = flowerModel.filter("flowerName CONTAINS[cd] %@", searchText)[indexPath.row]
+            flowerCard.flowerModel = searchFlower
+        }else{
+            flowerCard.flowerModel = flowerModel[indexPath.row]
+        }
         navigationController?.pushViewController(flowerCard, animated: true)
     }
     
+}
+
+//MARK: UISearchBarDelegate, UISearchResultsUpdating
+extension ListOfFlowers: UISearchBarDelegate, UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = searchController.searchBar.text!
+        
+        if !searchText.isEmpty{
+            search = true
+        }else{
+            search = false
+        }
+        collectionView.reloadData()
+    }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+
+        search = false
+        collectionView.reloadData()
+    }
 }

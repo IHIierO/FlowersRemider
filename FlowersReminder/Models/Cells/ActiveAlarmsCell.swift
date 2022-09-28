@@ -82,7 +82,7 @@ class ActiveAlarmsCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.backgroundColor = UIColor(hexString: "#FBDDE7")
+        self.backgroundColor = .white // UIColor(hexString: "#FBDDE7")
         setConstraints()
         self.selectionStyle = .none
         compliteButton.addTarget(self, action: #selector(compliteButtonTapped), for: .touchUpInside)

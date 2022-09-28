@@ -56,10 +56,10 @@ class TabBar: UITabBarController{
         customLayer.path = createPath()
         tabBar.layer.insertSublayer(customLayer, at: 0)
         
-        customLayer.fillColor = UIColor(hexString: "#CA587F").cgColor
+        customLayer.fillColor = UIColor(hexString: "#CFD9CE").cgColor
         
-        tabBar.tintColor = UIColor(hexString: "#92CD5A")
-        tabBar.unselectedItemTintColor = UIColor(hexString: "#ECFBDE")
+        tabBar.tintColor = UIColor(hexString: "#477940")
+        tabBar.unselectedItemTintColor = UIColor(hexString: "#393C39")
     }
     
     private func createPath() -> CGPath {
@@ -114,7 +114,7 @@ class TabBar: UITabBarController{
         addNewFlowerButtonFrame.origin.x = view.bounds.width/2 - addNewFlowerButtonFrame.size.width/2
         addNewFlowerButton.frame = addNewFlowerButtonFrame
         
-        addNewFlowerButton.backgroundColor = UIColor(hexString: "#CA587F")
+        addNewFlowerButton.backgroundColor = UIColor(hexString: "#CFD9CE")
         addNewFlowerButton.layer.cornerRadius = addNewFlowerButtonFrame.height/2
         view.addSubview(addNewFlowerButton)
         
