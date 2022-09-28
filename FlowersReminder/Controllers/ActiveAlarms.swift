@@ -191,6 +191,28 @@ extension ActiveAlarms: FSCalendarDelegate, FSCalendarDataSource, UITableViewDel
         alarmOnDay(date: date)
     }
     
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        let dateString = dateFormatter.string(from: date)
+        
+        var container: [String] = []
+        let eventFlowers = localRealm.objects(FlowerModel.self)
+        
+        for flower in eventFlowers{
+            let eventFlowersDateString = dateFormatter.string(from: flower.dateWatering)
+            container.append(eventFlowersDateString)
+        }
+        
+        if container.contains(dateString){
+            return 1
+        }
+        
+        return 0
+    }
+    
     //MARK: Set constraints
     
     func setConstraints(){

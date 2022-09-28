@@ -127,7 +127,7 @@ class ListOfFlowers: UIViewController{
             let fertilizerDay = DateComponents(day: flower.fertilizerFrequency)
             
             
-            if flower.compliteColor == "#D3D3D3" && Calendar.current.isDate(flower.dateWatering, equalTo: verificationDay, toGranularity: .day){
+            if flower.compliteColor == "#9f9f9f" && Calendar.current.isDate(flower.dateWatering, equalTo: verificationDay, toGranularity: .day){
                 try! localRealm.write{
                     flower.dateWatering = Calendar.current.date(byAdding: irrigationDay, to: flower.dateWatering)!
                     flower.dateFertilizer = Calendar.current.date(byAdding: fertilizerDay, to: flower.dateFertilizer)!

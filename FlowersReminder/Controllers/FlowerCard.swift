@@ -150,6 +150,7 @@ class FlowerCard: UICollectionViewController{
                 changeActivate = !changeActivate
                 collectionView.allowsSelection = changeActivate
                 flowerCardButtonsCell.changeActivate = changeActivate
+                
             }
             flowerCardButtonsCell.deleteButtonTapAction = { [self]
                 () in
