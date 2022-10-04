@@ -40,6 +40,8 @@
 		3959F4DC28D9E68600985023 /* FlowerInfoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F4DB28D9E68600985023 /* FlowerInfoCVCell.swift */; };
 		399AAB1128DDC240003B2037 /* ListOfFlowers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399AAB1028DDC240003B2037 /* ListOfFlowers.swift */; };
 		399AAB1328DDC5A3003B2037 /* ListOfFlowerCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399AAB1228DDC5A3003B2037 /* ListOfFlowerCVCell.swift */; };
+		399AAB1A28EB0D56003B2037 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399AAB1928EB0D56003B2037 /* PinterestLayout.swift */; };
+		399AAB1C28EC614A003B2037 /* UITextView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399AAB1B28EC614A003B2037 /* UITextView+Additions.swift */; };
 		39A6242628DB44D000DA1296 /* FlowerCardButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A6242528DB44D000DA1296 /* FlowerCardButtonsCell.swift */; };
 		C7EDB8DB3C74769C6154BA90 /* Pods_FlowersReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CC39C96C247AF339AE2D822 /* Pods_FlowersReminder.framework */; };
 		DF718314447AE2FBDDAA5381 /* Pods_FlowersReminder_FlowersReminderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF7DB0207135E0570DB66E6 /* Pods_FlowersReminder_FlowersReminderUITests.framework */; };
@@ -104,6 +106,8 @@
 		3959F4DB28D9E68600985023 /* FlowerInfoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerInfoCVCell.swift; sourceTree = "<group>"; };
 		399AAB1028DDC240003B2037 /* ListOfFlowers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFlowers.swift; sourceTree = "<group>"; };
 		399AAB1228DDC5A3003B2037 /* ListOfFlowerCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFlowerCVCell.swift; sourceTree = "<group>"; };
+		399AAB1928EB0D56003B2037 /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		399AAB1B28EC614A003B2037 /* UITextView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Additions.swift"; sourceTree = "<group>"; };
 		39A6242528DB44D000DA1296 /* FlowerCardButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerCardButtonsCell.swift; sourceTree = "<group>"; };
 		55583549923FC3A2E8127D29 /* Pods-FlowersReminderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowersReminderTests.debug.xcconfig"; path = "Target Support Files/Pods-FlowersReminderTests/Pods-FlowersReminderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F27CE4AF63EF55DFCAC06FA /* Pods-FlowersReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowersReminder.release.xcconfig"; path = "Target Support Files/Pods-FlowersReminder/Pods-FlowersReminder.release.xcconfig"; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				3959F4B728C787AA00985023 /* ColorHex.swift */,
+				399AAB1B28EC614A003B2037 /* UITextView+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				3959F4C628CB59C300985023 /* TapButtonProtocol.swift */,
+				399AAB1928EB0D56003B2037 /* PinterestLayout.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -564,6 +570,7 @@
 				3959F4C428CB542E00985023 /* ImagePicker.swift in Sources */,
 				3959F4D828D9C60600985023 /* FlowerCardHeader.swift in Sources */,
 				3959F4D128CCCA3A00985023 /* Alerts.swift in Sources */,
+				399AAB1C28EC614A003B2037 /* UITextView+Additions.swift in Sources */,
 				3959F4CD28CB6DE700985023 /* PickerCell.swift in Sources */,
 				3959F4AD28C77EA300985023 /* TabBar.swift in Sources */,
 				3959F4C728CB59C300985023 /* TapButtonProtocol.swift in Sources */,
@@ -585,6 +592,7 @@
 				39A6242628DB44D000DA1296 /* FlowerCardButtonsCell.swift in Sources */,
 				3959F4DA28D9DD3700985023 /* FlowerCardHeaderLayout.swift in Sources */,
 				3959F4D328D0B14900985023 /* FlowerInfoPicker.swift in Sources */,
+				399AAB1A28EB0D56003B2037 /* PinterestLayout.swift in Sources */,
 				3959F47628C7609500985023 /* AppDelegate.swift in Sources */,
 				3959F47828C7609500985023 /* SceneDelegate.swift in Sources */,
 				3959F4C928CB609C00985023 /* DatePicker.swift in Sources */,

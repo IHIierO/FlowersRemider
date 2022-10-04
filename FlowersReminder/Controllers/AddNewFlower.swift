@@ -30,6 +30,7 @@ class AddNewFlower: UIViewController {
         flowerName.layer.cornerRadius = 5
         flowerName.sizeToFit()
         flowerName.isScrollEnabled = false
+        
          
         flowerName.translatesAutoresizingMaskIntoConstraints = false
         return flowerName
@@ -44,27 +45,23 @@ class AddNewFlower: UIViewController {
     let addImageButton: UIButton = {
         let addImageButton = UIButton()
         addImageButton.setTitle("Добавить Фото", for: .normal)
+        addImageButton.setTitleColor(UIColor(hexString: "#393C39"), for: .normal)
         addImageButton.titleLabel?.font = .systemFont(ofSize: 13)
-        addImageButton.setTitleColor(.systemBlue, for: .normal)
         
         addImageButton.translatesAutoresizingMaskIntoConstraints = false
         return addImageButton
     }()
     
-    var dataStrings: [String] = [String]()
-    
     let idAddNewFlowerCell = "idAddNewFlowerCell"
     
     private var flowerModel = FlowerModel()
-    
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setConstraints()
-        
-        dataStrings = ["","","","",""]
-        
-        view.backgroundColor = UIColor(hexString: "#FBDDE7")
+        viewControllerConfig()
+        view.backgroundColor = .white
 //        title = "Добавить Цветок"
         
 //        if #available(iOS 13.0, *) {
@@ -83,49 +80,42 @@ class AddNewFlower: UIViewController {
 //                        } else {
 //                            navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ECFBDE")
 //                        }
+       
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
         
+        navigationItem.rightBarButtonItem?.isEnabled = false
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        tableView.reloadData()
+        flowerName.text = "Название Цветка"
+        flowerName.textColor = .lightGray
+        flowersImage.image = UIImage(named: "defaultFlower")
+        navigationItem.rightBarButtonItem?.isEnabled = false
+    }
+    
+    private func viewControllerConfig(){
         flowersImage.layer.borderWidth = 1
         flowersImage.layer.cornerRadius = 10
         
         addImageButton.addTarget(self, action: #selector(addImageButtonTapped), for: .touchUpInside)
         
         flowerName.delegate = self
+        flowerName.addDoneButton(title: "Готово", target: self, selector: #selector(tapDone(sender: )))
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor(hexString: "#FBDDE7")
+        tableView.backgroundColor = .white //UIColor(hexString: "#FBDDE7")
         tableView.register(AddNewFlowerCell.self, forCellReuseIdentifier: idAddNewFlowerCell)
         tableView.separatorStyle = .none
         tableView.bounces = false
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        
-        view.addGestureRecognizer(tap)
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
-        
-        navigationItem.rightBarButtonItem?.isEnabled = false
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardDidHideNotification, object: nil)
-
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
+    @objc func tapDone(sender: Any) {
+            self.view.endEditing(true)
+        }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let userInfo = notification.userInfo {
-                let keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size.height
-                tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
-         }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        UIView.animate(withDuration: 0.2, animations: { self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)})
-    }
-                                                                                      
     @objc func addImageButtonTapped(){
             ImagePickerManager().pickImage(self){ image in self.flowersImage.image = image}
         }
@@ -136,24 +126,9 @@ class AddNewFlower: UIViewController {
 
         self.flowerModel.flowerImage = dataImage as Data
         self.flowerModel.flowerName = flowerName.text
-        self.flowerModel.temperature = dataStrings[0]
-        self.flowerModel.sun = dataStrings[1]
-        self.flowerModel.watering = dataStrings[2]
-        self.flowerModel.fertilization = dataStrings[3]
-        self.flowerModel.toxicityForAnimals = dataStrings[4]
-
         RealmManager.shared.saveFlowerModel(model: flowerModel)
-
         flowerModel = FlowerModel()
-        
         saveAlert(tableView: tableView, flowerName: flowerName, flowerImage: flowersImage)
-        
-    }
-    
-    @objc func dismissKeyboard() {
-        
-        view.endEditing(true)
-        tableView.reloadData()
     }
 
     //MARK: setConstraints
@@ -182,7 +157,7 @@ class AddNewFlower: UIViewController {
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: addImageButton.bottomAnchor, constant: 10),
+            tableView.topAnchor.constraint(equalTo: addImageButton.bottomAnchor, constant: 20),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
@@ -191,33 +166,82 @@ class AddNewFlower: UIViewController {
 }
 
 //MARK: TableViewDelegate, TableViewDataSource
-extension AddNewFlower: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
+extension AddNewFlower: UITableViewDelegate, UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataStrings.count
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: idAddNewFlowerCell, for: indexPath) as! AddNewFlowerCell
         cell.cellConfig(indexPath: indexPath)
-        cell.flowerInfo.text = dataStrings[indexPath.row]
-        cell.callback = { string in
-            self.dataStrings[indexPath.row] = string
-                }
-        
-        if dataStrings[4] != ""{
-            navigationItem.rightBarButtonItem?.isEnabled = true
-        }
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.cellForRow(at: indexPath) as! AddNewFlowerCell
+        switch indexPath {
+        case [0,0]:
+            alertDatePicker(label: cell.flowerInfo) { (date) in
+                self.flowerModel.dateWatering = date
+                self.flowerModel.dateFertilizer = date
+            }
+        case [0,1]:
+            temperaturePicker(label: cell.flowerInfo) { String in
+                self.flowerModel.temperature = String
+            }
+        case [0,2]:
+            sunPicker(label: cell.flowerInfo) { String in
+                self.flowerModel.sun = String
+            }
+        case [0,3]:
+            alertIrrigationFrequencyPicker(label: cell.flowerInfo) { [self]  String in
+                
+                    if String == "Раз в 3 дня"{
+                        flowerModel.irrigationFrequency = 3
+                    }else if String ==  "Раз в 5 дней"{
+                        flowerModel.irrigationFrequency = 5
+                    }else if String ==  "Раз в неделю"{
+                        flowerModel.irrigationFrequency = 7
+                    }else if String ==  "Раз в 2 недели"{
+                        flowerModel.irrigationFrequency = 14
+                    }else if String ==  "Раз в месяц"{
+                        flowerModel.irrigationFrequency = 30
+                    }else if String ==  "Раз в два месяца"{
+                        flowerModel.irrigationFrequency = 61
+                    }
+            }
+        case [0,4]:
+            alertFertilizerFrequencyPicker(label: cell.flowerInfo) { [self] String in
+               
+                    if String == "Раз в месяц"{
+                        flowerModel.fertilizerFrequency = 30
+                    }else if String ==  "Раз в 2 месяца"{
+                        flowerModel.fertilizerFrequency = 61
+                    }
+            }
+        case [0,5]:
+            toxicityForAnimalsPicker(label: cell.flowerInfo) { String in
+                if String != "Токсичен / Не токсичен для животных"{
+                    self.navigationItem.rightBarButtonItem?.isEnabled = true
+                }
+                self.flowerModel.toxicityForAnimals = String
+            }
+        default:
+            print("Error")
+        }
     }
 }
 
 //MARK: UITextViewDelegate
 extension AddNewFlower: UITextViewDelegate{
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if flowerName.textColor == .lightGray{
             flowerName.text = nil
@@ -225,13 +249,12 @@ extension AddNewFlower: UITextViewDelegate{
         }
         
     }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         if flowerName.text.isEmpty{
             flowerName.text = "Название Цветка"
             flowerName.textColor = .lightGray
-
-        }else{
-
         }
     }
+
 }

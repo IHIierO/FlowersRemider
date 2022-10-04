@@ -53,7 +53,7 @@ class ListOfFlowers: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       collectionView.reloadData()
+        collectionView.reloadData()
         viewControllerConfig()
         setConstraints()
         flowerModel = localRealm.objects(FlowerModel.self)
@@ -93,11 +93,6 @@ class ListOfFlowers: UIViewController{
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-    }
-    
-    @objc func pushToAddNewFlower(){
-        let addNewFlower = AddNewFlower()
-        navigationController?.pushViewController(addNewFlower, animated: true)
     }
     
     //MARK: setConstraints

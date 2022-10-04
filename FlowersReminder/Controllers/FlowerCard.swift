@@ -116,30 +116,7 @@ class FlowerCard: UICollectionViewController{
         let flowerInfoCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: flowerInfoCellID, for: indexPath) as! FlowerInfoCVCell
         
         switch indexPath {
-        case [0,0]:
-            flowerInfoCVCell.cellConfig(indexPath: indexPath)
-            flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
-            return flowerInfoCVCell
-        case [0,1]:
-            flowerInfoCVCell.cellConfig(indexPath: indexPath)
-            flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
-            return flowerInfoCVCell
-        case [0,2]:
-            flowerInfoCVCell.cellConfig(indexPath: indexPath)
-            flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
-            return flowerInfoCVCell
-        case [0,3]:
-            flowerInfoCVCell.cellConfig(indexPath: indexPath)
-            flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
-            return flowerInfoCVCell
-        case [0,4]:
-            flowerInfoCVCell.cellConfig(indexPath: indexPath)
-            flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
-            return flowerInfoCVCell
-        case [0,5]:
-            flowerInfoCVCell.cellConfig(indexPath: indexPath)
-            flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
-            return flowerInfoCVCell
+        
         case [0,6]:
             let flowerCardButtonsCell = collectionView.dequeueReusableCell(withReuseIdentifier: flowerCardButtonsCell, for: indexPath) as! FlowerCardButtonsCell
             flowerCardButtonsCell.cellConfig()
@@ -158,11 +135,11 @@ class FlowerCard: UICollectionViewController{
                 deleteAlert(model: flowerModel)
             }
             
-            
             return flowerCardButtonsCell
        
         default:
             flowerInfoCVCell.cellConfig(indexPath: indexPath)
+            flowerInfoCVCell.flowerInfo.text = infoData[indexPath.row]
             return flowerInfoCVCell
         }
         

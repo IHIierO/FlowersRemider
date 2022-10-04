@@ -16,13 +16,14 @@ extension UIViewController{
         
         let ok = UIAlertAction(title: "OK", style: .default) {(action) in
             flowerName.text = "Название Цветка"
+            flowerName.textColor = .lightGray
             flowerImage.image = UIImage(named: "defaultFlower")
-            
-            let indexPaths   = [[0,0],[0,1],[0,2],[0,3],[0,4]]
-            
+
+            let indexPaths   = [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5]]
+           
             for indexPath in indexPaths {
                 let cell = tableView.cellForRow(at: IndexPath(indexes: indexPath)) as! AddNewFlowerCell
-                cell.flowerInfo.text?.removeAll()
+                cell.cellConfig(indexPath: IndexPath(indexes: indexPath))
             }
             
         }
