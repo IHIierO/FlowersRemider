@@ -37,7 +37,7 @@ class FlowerCardHeader: UICollectionReusableView {
        let flowerName = UILabel()
         flowerName.text = "Гербера"
         flowerName.adjustsFontSizeToFitWidth = true
-        flowerName.font = UIFont.systemFont(ofSize: 30, weight: .medium)
+        flowerName.font = UIFont(name: "DitaSweet", size: 30)
         flowerName.textColor = UIColor(hexString: "#393C39")
         
         flowerName.translatesAutoresizingMaskIntoConstraints = false
@@ -109,13 +109,13 @@ class FlowerCardHeader: UICollectionReusableView {
             flowerName.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: -5),
         ])
         
-        vStack.addSubview(dateWatering)
-        NSLayoutConstraint.activate([
-            dateWatering.topAnchor.constraint(equalTo: flowerName.bottomAnchor, constant: 5),
-            dateWatering.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 10),
-            dateWatering.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: -5),
-            dateWatering.bottomAnchor.constraint(equalTo: vStack.bottomAnchor, constant: -2),
-        ])
+//        vStack.addSubview(dateWatering)
+//        NSLayoutConstraint.activate([
+//            dateWatering.topAnchor.constraint(equalTo: flowerName.bottomAnchor, constant: 5),
+//            dateWatering.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 10),
+//            dateWatering.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: -5),
+//            dateWatering.bottomAnchor.constraint(equalTo: vStack.bottomAnchor, constant: -2),
+//        ])
     }
     
 }

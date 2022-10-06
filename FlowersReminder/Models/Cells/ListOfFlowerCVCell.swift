@@ -48,7 +48,7 @@ class ListOfFlowerCVCell: UICollectionViewCell {
     let flowerName: UILabel = {
        let flowerName = UILabel()
         flowerName.text = "Гербера"
-        flowerName.font = UIFont.systemFont(ofSize: 20)
+        flowerName.font = UIFont(name: "DitaSweet", size: 20)
         flowerName.textColor = .white
         flowerName.adjustsFontSizeToFitWidth = true
         

@@ -58,7 +58,6 @@ class ListOfFlowers: UIViewController{
         setConstraints()
         flowerModel = localRealm.objects(FlowerModel.self)
         changeDay()
-        
     }
     
     private func viewControllerConfig(){

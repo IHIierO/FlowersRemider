@@ -82,12 +82,13 @@ class AddNewFlower: UIViewController {
 //                        }
        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Очистить", style: .plain, target: self, action: #selector(refreshButtonTapped))
         
         navigationItem.rightBarButtonItem?.isEnabled = false
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    @objc func refreshButtonTapped() {
         tableView.reloadData()
         flowerName.text = "Название Цветка"
         flowerName.textColor = .lightGray

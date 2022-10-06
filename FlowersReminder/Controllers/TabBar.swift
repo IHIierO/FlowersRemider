@@ -118,7 +118,7 @@ class TabBar: UITabBarController{
         addNewFlowerButton.layer.cornerRadius = addNewFlowerButtonFrame.height/2
         view.addSubview(addNewFlowerButton)
         
-        addNewFlowerButton.setImage(UIImage(named: "complite"), for: .normal)
+        addNewFlowerButton.setImage(UIImage(named: "addNewFlower"), for: .normal)
         addNewFlowerButton.contentMode = .scaleAspectFill
         addNewFlowerButton.addTarget(self, action: #selector(addNewFlowerButtonAction(sender:)), for: .touchUpInside)
         

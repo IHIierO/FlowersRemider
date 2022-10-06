@@ -73,27 +73,14 @@ class FlowerCard: UICollectionViewController{
     //MARK: collectionViewConfig
     
     private func collectionViewConfig(){
-        
-//        navigationController?.tabBarController?.tabBar.isHidden = true
         let tabBar = self.tabBarController as! TabBar
         tabBar.hideTabBar()
-        
-//        if #available(iOS 13.0, *) {
-//                            let navBarAppearance = UINavigationBarAppearance()
-//                            navBarAppearance.configureWithOpaqueBackground()
-//            navBarAppearance.backgroundColor = UIColor.clear
-//                    navBarAppearance.largeTitleTextAttributes = [
-//                        NSAttributedString.Key.foregroundColor : UIColor.clear
-//                    ]
-//                    navBarAppearance.titleTextAttributes = [
-//                        NSAttributedString.Key.foregroundColor : UIColor.clear
-//                    ]
-//                    navigationController?.navigationBar.standardAppearance = navBarAppearance
-//                    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-//            navigationController?.navigationBar.tintColor = UIColor.black
-//                        } else {
-//                            navigationController?.navigationBar.barTintColor = UIColor.clear
-//                        }
+     
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) 
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.tintColor = UIColor(hexString: "#393C39")
+        self.navigationController?.view.backgroundColor = .clear
         
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.backgroundColor = .white
@@ -119,22 +106,25 @@ class FlowerCard: UICollectionViewController{
         
         case [0,6]:
             let flowerCardButtonsCell = collectionView.dequeueReusableCell(withReuseIdentifier: flowerCardButtonsCell, for: indexPath) as! FlowerCardButtonsCell
-            flowerCardButtonsCell.cellConfig()
             
-            flowerCardButtonsCell.buttonTapAction = { [self]
+            flowerCardButtonsCell.changeButtonTapAction = { [self]
                 ()  in
-                collectionView.reloadData()
+                flowerCardButtonsCell.setConstraints1()
                 changeActivate = !changeActivate
                 collectionView.allowsSelection = changeActivate
                 flowerCardButtonsCell.changeActivate = changeActivate
-                
+            }
+            flowerCardButtonsCell.saveButtonTapAction = { [self]
+                ()  in
+                flowerCardButtonsCell.setConstraints()
+                changeActivate = !changeActivate
+                collectionView.allowsSelection = changeActivate
+                flowerCardButtonsCell.changeActivate = changeActivate
             }
             flowerCardButtonsCell.deleteButtonTapAction = { [self]
                 () in
-                
                 deleteAlert(model: flowerModel)
             }
-            
             return flowerCardButtonsCell
        
         default:

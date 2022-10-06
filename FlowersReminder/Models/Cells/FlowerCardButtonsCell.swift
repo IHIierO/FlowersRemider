@@ -11,7 +11,8 @@ class FlowerCardButtonsCell: UICollectionViewCell {
     
     var changeActivate = false
     
-    var buttonTapAction : (()->())?
+    var changeButtonTapAction : (()->())?
+    var saveButtonTapAction : (()->())?
     var deleteButtonTapAction : (()->())?
     
     let shadowBackgroundForCangeButton: UIView = {
@@ -115,30 +116,30 @@ class FlowerCardButtonsCell: UICollectionViewCell {
     }
     
     @objc func changeButtonTapped(){
-        buttonTapAction?()
+        changeButtonTapAction?()
     }
     
     @objc func saveButtonTapped(){
-        buttonTapAction?()
+        saveButtonTapAction?()
     }
     
     @objc func deleteButtonTapped(){
         deleteButtonTapAction?()
     }
     
-    internal func cellConfig(){
-        
-        if changeActivate == false{
-            
-            setConstraints()
-        }else{
-            
-            setConstraints1()
-        }
-    }
+//    internal func cellConfig(){
+//
+//        if changeActivate == false{
+//
+//            setConstraints()
+//        }else{
+//
+//            setConstraints1()
+//        }
+//    }
     
     //MARK: setConstraints
-    private func setConstraints(){
+    func setConstraints(){
         
         if let remove3 = viewWithTag(3){
             remove3.removeFromSuperview()
@@ -172,7 +173,7 @@ class FlowerCardButtonsCell: UICollectionViewCell {
         
     }
     
-    private func setConstraints1(){
+    func setConstraints1(){
         
         if let remove1 = viewWithTag(1){
             remove1.removeFromSuperview()
