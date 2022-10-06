@@ -1,6 +1,6 @@
 # FlowersRemider
 
-
+My app for reminder flower irrigation.
 
 
 
